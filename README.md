@@ -1,37 +1,38 @@
 -*- mode: markdown; mode: visual-line; fill-column: 80 -*-
 
-[![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
-![By svarrette](https://img.shields.io/badge/by-svarrette-blue.svg) [![github](https://img.shields.io/badge/git-github-lightgray.svg)](https://github.com/Falkor/rr-tutorials) [![Issues](https://img.shields.io/badge/issues-github-green.svg)](https://github.com/Falkor/rr-tutorials/issues)
-
-       Time-stamp: <Mon 2016-02-22 22:04 svarrette>
-
-         _____                          _            _ _     _        _____                              _       _______    _             _       _     
-        |  __ \                        | |          (_) |   | |      |  __ \                            | |     |__   __|  | |           (_)     | |    
-        | |__) |___ _ __  _ __ ___   __| |_   _  ___ _| |__ | | ___  | |__) |___ ___  ___  __ _ _ __ ___| |__      | |_   _| |_ ___  _ __ _  __ _| |___ 
-        |  _  // _ \ '_ \| '__/ _ \ / _` | | | |/ __| | '_ \| |/ _ \ |  _  // _ \ __|/ _ \/ _` | '__/ __| '_ \     | | | | | __/ _ \| '__| |/ _` | / __|
-        | | \ \  __/ |_) | | | (_) | (_| | |_| | (__| | |_) | |  __/ | | \ \  __\__ \  __/ (_| | | | (__| | | |    | | |_| | |_ (_) | |  | | (_| | \__ \
-        |_|  \_\___| .__/|_|  \___/ \__,_|\__,_|\___|_|_.__/|_|\___| |_|  \_\___|___/\___|\__,_|_|  \___|_| |_|    |_|\__,_|\__\___/|_|  |_|\__,_|_|___/
-                   | |                                                                                                                                  
-                   |_|                                                                                                                                  
-       Copyright (c) 2016 Sebastien Varrette <Sebastien.Varrette@uni.lu>
+[![By svarrette](https://img.shields.io/badge/by-svarrette-blue.svg)](https://varrette.gforge.uni.lu) [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![GitHub issues](https://img.shields.io/github/issues/Falkor/RR-tutorials.svg)](https://github.com/Falkor/RR-tutorials/issues/) [![](https://img.shields.io/badge/webinars-Reproducible_Research-green.svg?style=flat-square)](https://github.com/alegrand/RR_webinars)
 
 
-## Synopsis
+       Time-stamp: <Wed 2016-12-07 12:15 svarrette>
 
-Tutorial "Reproducible Research at the Cloud Era" initially given at IEEE CloudCom 2016
+         _____                          _            _ _     _        _____                              _
+        |  __ \                        | |          (_) |   | |      |  __ \                            | |
+        | |__) |___ _ __  _ __ ___   __| |_   _  ___ _| |__ | | ___  | |__) |___ ___  ___  __ _ _ __ ___| |__
+        |  _  // _ \ '_ \| '__/ _ \ / _` | | | |/ __| | '_ \| |/ _ \ |  _  // _ \ __|/ _ \/ _` | '__/ __| '_ \
+        | | \ \  __/ |_) | | | (_) | (_| | |_| | (__| | |_) | |  __/ | | \ \  __\__ \  __/ (_| | | | (__| | | |
+        |_|  \_\___| .__/|_|  \___/ \__,_|\__,_|\___|_|_.__/|_|\___| |_|  \_\___|___/\___|\__,_|_|  \___|_| |_|
+                   | |
+                   |_|
+
+# Tutorial "Reproducible Research at the Cloud Era"
+
+This repository hosts documents, material and information related to the tutorial "Reproducible Research at the Cloud Era" given during the [IEEE CloudCom 2016](http://2016.cloudcom.org/) conference.
+
+
+
+
 
 ## Installation / Repository Setup
 
-This repository is hosted on [Github](https://github.com/Falkor/rr-tutorials). 
+This repository is hosted on [Github](https://github.com/Falkor/rr-tutorials).
 
 * To clone this repository, proceed as follows (adapt accordingly):
 
         $> mkdir -p ~/git/github.com/svarrette
         $> cd ~/git/github.com/svarrette
-        $> git clone git@github.com:Falkor/RR-tutorials.git
+        $> git clone https://github.com/Falkor/RR-tutorials.git
 
-
-**`/!\ IMPORTANT`**: Once cloned, initiate your local copy of the repository by running: 
+**`/!\ IMPORTANT`**: Once cloned, initiate your local copy of the repository by running:
 
     $> cd rr-tutorials
     $> make setup
@@ -46,106 +47,13 @@ If upon pulling the repository, you end in a state where another collaborator ha
 
     $> make update
 
-
-
-
 ## Issues / Feature request
 
 You can submit bug / issues / feature request using the [`svarrette/rr-tutorials` Project Tracker](https://github.com/Falkor/rr-tutorials/issues)
 
-
-
-## Advanced Topics
-
-### Git
-
-This repository make use of [Git](http://git-scm.com/) such that you should have it installed on your working machine: 
-
-       $> apt-get install git-core # On Debian-like systems
-       $> yum install git          # On CentOS-like systems
-       $> brew install git         # On Mac OS, using [Homebrew](http://mxcl.github.com/homebrew/)
-       $> port install git         # On Mac OS, using MacPort
-
-Consider these resources to become more familiar (if not yet) with Git:
-
-* [Simple Git Guide](http://rogerdudler.github.io/git-guide/)
-* [Git book](http://book.git-scm.com/index.html)
-* [Github:help](http://help.github.com/mac-set-up-git/)
-* [Git reference](http://gitref.org/)
-
-At least, you shall configure the following variables
-
-       $> git config --global user.name "Your Name Comes Here"
-       $> git config --global user.email you@yourdomain.example.com
-       # configure colors
-       $> git config --global color.diff auto
-       $> git config --global color.status auto
-       $> git config --global color.branch auto
-
-Note that you can create git command aliases in `~/.gitconfig` as follows: 
-
-       [alias]
-           up = pull origin
-           pu = push origin
-           st = status
-           df = diff
-           ci = commit -s
-           br = branch
-           w  = whatchanged --abbrev-commit
-           ls = ls-files
-           gr = log --graph --oneline --decorate
-           amend = commit --amend
-
-Consider my personal [`.gitconfig`](https://github.com/Falkor/dotfiles/blob/master/git/.gitconfig) as an example -- if you decide to use it, simply copy it in your home directory and adapt the `[user]` section. 
-
-### [Git-flow](https://github.com/nvie/gitflow)
-
-The Git branching model for this repository follows the guidelines of
-[gitflow](http://nvie.com/posts/a-successful-git-branching-model/).
-In particular, the central repository holds two main branches with an infinite lifetime:
-
-* `production`: the *production-ready* branch
-* `master`: the main branch where the latest developments interviene. This is the *default* branch you get when you clone the repository.
-
-Thus you are more than encouraged to install the [git-flow](https://github.com/nvie/gitflow) extensions following the [installation procedures](https://github.com/nvie/gitflow/wiki/Installation) to take full advantage of the proposed operations. The associated [bash completion](https://github.com/bobthecow/git-flow-completion) might interest you also.
-
-### Releasing mechanism
-
-The operation consisting of releasing a new version of this repository is automated by a set of tasks within the root `Makefile`.
-
-In this context, a version number have the following format:
-
-      <major>.<minor>.<patch>[-b<build>]
-
-where:
-
-* `< major >` corresponds to the major version number
-* `< minor >` corresponds to the minor version number
-* `< patch >` corresponds to the patching version number
-* (eventually) `< build >` states the build number _i.e._ the total number of commits within the `master` branch.
-
-Example: \`1.0.0-b28\`
-
-The current version number is stored in the root file `VERSION`. __/!\ NEVER MAKE ANY MANUAL CHANGES TO THIS FILE__
-
-For more information on the version, run:
-
-     $> make versioninfo
-
-If a new version number such be bumped, you simply have to run:
-
-      $> make start_bump_{major,minor,patch}
-
-This will start the release process for you using `git-flow`.
-Once you have finished to commit your last changes, make the release effective by running:
-
-      $> make release
-
-It will finish the release using `git-flow`, create the appropriate tag in the `production` branch and merge all things the way they should be.
-
 ## Licence
 
-This project is released under the terms of the [GPL-3.0](LICENCE) licence. 
+This project is released under the terms of the [GPL-3.0](LICENCE) licence.
 
 [![Licence](https://www.gnu.org/graphics/gplv3-88x31.png)](http://www.gnu.org/licenses/gpl-3.0.html)
 
@@ -158,3 +66,16 @@ That's quite simple:
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new [Pull Request](https://help.github.com/articles/using-pull-requests/)
+
+## Resources / Links
+
+Your __primary__ source of information if you are interested to know more about _Reproducible Research_ is the excellent [__Series of Webinars on Reproducible Research__](https://github.com/alegrand/RR_webinars) organized by [Arnaud Legrand](http://mescal.imag.fr/membres/arnaud.legrand/) and his colleagues from CNRS, Inria, University of Grenoble, ENS etc.:
+
+[![](https://img.shields.io/badge/webinars-Reproducible_Research-green.svg?style=flat-square)](https://github.com/alegrand/RR_webinars)
+
+
+Actually, part of the material proposed on this repository comes from this source, and I would like to thank again Arnaud for allowing me to do it.
+
+Other resources you might be interested to check:
+
+* [Figshare: simplifying your research workflow](https://figshare.com/)
