@@ -1,9 +1,9 @@
 -*- mode: markdown; mode: visual-line; fill-column: 80 -*-
 
-[![By svarrette](https://img.shields.io/badge/by-svarrette-blue.svg)](https://varrette.gforge.uni.lu) [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![GitHub issues](https://img.shields.io/github/issues/Falkor/RR-tutorials.svg)](https://github.com/Falkor/RR-tutorials/issues/) [![Documentation Status](https://readthedocs.org/projects/RR-tutorials/badge/?version=latest)](https://readthedocs.org/projects/RR-tutorials/?badge=latest) [![](https://img.shields.io/badge/webinars-Reproducible_Research-green.svg?style=flat-square)](https://github.com/alegrand/RR_webinars)
+[![By svarrette](https://img.shields.io/badge/by-svarrette-blue.svg)](https://varrette.gforge.uni.lu) [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![GitHub issues](https://img.shields.io/github/issues/Falkor/RR-tutorials.svg)](https://github.com/Falkor/RR-tutorials/issues/) [![Documentation Status](https://readthedocs.org/projects/rr-tutorials/badge/?version=latest)](http://rr-tutorials.readthedocs.io/en/latest/?badge=latest) [![](https://img.shields.io/badge/webinars-Reproducible_Research-green.svg?style=flat-square)](https://github.com/alegrand/RR_webinars)
 
 
-       Time-stamp: <Wed 2016-12-07 17:51 svarrette>
+       Time-stamp: <Wed 2016-12-07 17:58 svarrette>
 
          _____                          _            _ _     _        _____                              _
         |  __ \                        | |          (_) |   | |      |  __ \                            | |
