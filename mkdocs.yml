@@ -1,0 +1,10 @@
+site_name: Reproducible Research Tutorial
+pages:
+- Home: 'index.md'
+- Documentation (RTFD): 'rtfd.md'
+- Contributing:
+  - 'Overview': 'contributing/index.md'
+  - 'Directory Layout': 'contributing/layout.md'
+  - 'Repository Setup and Developments': 'contributing/setup.md'
+  - 'Semantic Versioning': 'contributing/versioning.md'
+theme: readthedocs
