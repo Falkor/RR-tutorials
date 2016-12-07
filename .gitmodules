@@ -2,3 +2,7 @@
 	path = .submodules/Makefiles
 	url = https://github.com/Falkor/Makefiles.git
 	branch = devel
+[submodule ".submodules/beamerthemeFalkor"]
+	path = .submodules/beamerthemeFalkor
+	url = https://github.com/Falkor/beamerthemeFalkor
+	branch = master
