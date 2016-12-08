@@ -29,7 +29,7 @@
 \wend
 
 
-### (Poor) state of experimentation in CS
+### (Poor) State of Experimentation in CS
 
 * _1994_: survey of 400 papers\footcite{Lukowicz94}
     - among published CS articles in ACM journals
@@ -39,7 +39,7 @@
     - too many papers use an informal (assertion) form of validation
     - 2009 update: situation is improving\footcite{zelk09}
 
-### (Poor) state of experimentation in CS
+### (Poor) State of Experimentation in CS
 
 * Most papers _do not use_ even basic statistical tools
     - Papers published at the Europar conference\footnote{Study carried out by E. Jeannot.}
@@ -57,7 +57,7 @@
 | **2007-2001** | **435** |          **23** |   **5.3%** |
 
 
-### (Poor) state of experimentation in CS
+### (Poor) State of Experimentation in CS
 
 * _2007_: [Survey](http://www.comp.brad.ac.uk/het-net/tutorials/P37.pdf) of simulators used in P2P research\footcite{Naicken:2007:SPS:1232919.1232932}
      - 287 papers surveyed on P2P networking subject
@@ -74,7 +74,7 @@
   8.5/Others
 }
 
-### (Poor) state of experimentation in CS
+### (Poor) State of Experimentation in CS ###
 
 \begin{textblock}{0.6}(0.4,0.31)
   \imgw{}{Collberg_Total.png}
@@ -84,7 +84,7 @@
 \footcite{Collberg:Repeatability2015}
     - _Obj._:  attempt to locate any source code that backed up the published results;
     _if found, try to build the code_.
-    - EM$^\text{no}$: code cannot be provided!
+    - EM$^\text{no}$ (__146 papers!__): code cannot be provided!
     - Original study: _80% of non reproducible work_
 
 
@@ -95,4 +95,36 @@
   33.1/Excluded,
   5/Authors don't answer,
   1.6/Build Fails
+}
+
+
+### And in Other Sciences? ###
+
+* _2008_: Study shows lower fertility for mices exposed to transgenic maize ([AFSSA report](https://www.anses.fr/en/system/files/BIOT2008sa0361EN.pdf)\footnote{Opinion of the French Food Safety Agency (Afssa) on the study by Velimirov et al.})
+     - Several calculation errors have been identified
+     - led to a false statistical analysis \& interpretation
+
+. . .
+
+* _2011_: CERN Neutrinos / OPERA Experiment
+    - [_faster-than-light neutrinos_](https://en.wikipedia.org/wiki/Faster-than-light_neutrino_anomaly)
+        * People started gossiping about relativity violation...
+    - caused by timing system failure in 2012
+
+. . .
+
+\vspace*{-1em}
+\exbegin{}
+
+* \alert{\frownie}: Not everything is perfect
+* \smiley: But some errors are properly identified
+    - Stronger experimental culture in other (older?) sciences?
+    - Long history of costly experiments, scandals, \ldots
+
+\exend
+
+\just{2}{
+\begin{textblock}{0.2}(0.77,0.35)
+  \imgw{}{Faster-than-light-neutrino-anomaly.png}
+\end{textblock}
 }
