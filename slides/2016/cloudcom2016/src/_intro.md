@@ -97,16 +97,29 @@
   1.6/Build Fails
 }
 
+### And in Other Sciences? ###
+
+* _Biology_: Increase in _retracted papers_\footcite{Steen10},
+    - 26.6% fraud (data fabrication or falsification)
+    - 73.5% error (plagiarism, scientific mistake, ethical problems)
+         * see also [Reproducibility: A tragedy of errors](http://www.nature.com/news/reproducibility-a-tragedy-of-errors-1.19264)\footcite{Nature_Reproducibility16}
+    - High number of _failing clinical trials_
+         * [Do We Really Know What Makes Us Healthy?](http://mescal.imag.fr/membres/arnaud.legrand/teaching/2011/EP_epidemiology.pdf), 2007
+         * [Lies, Damned Lies, and Medical Science](http://mescal.imag.fr/membres/arnaud.legrand/teaching/2011/EP_lies.pdf), 2010
+
+* _Psychology_:
+    - [unreplicable study](https://en.wikipedia.org/wiki/Daryl_Bem#.22Feeling_the_Future.22_controversy) about extrasensory perception (ESP)
+
 
 ### And in Other Sciences? ###
 
-* _2008_: Study shows lower fertility for mices exposed to transgenic maize ([AFSSA report](https://www.anses.fr/en/system/files/BIOT2008sa0361EN.pdf)\footnote{Opinion of the French Food Safety Agency (Afssa) on the study by Velimirov et al.})
-     - Several calculation errors have been identified
-     - led to a false statistical analysis \& interpretation
+* _Medicine_: Study shows lower fertility for mices exposed to transgenic maize ([AFSSA report](https://www.anses.fr/en/system/files/BIOT2008sa0361EN.pdf)\footnote{Opinion of the French Food Safety Agency (Afssa) on the study by Velimirov et al.})
+    - Several calculation errors have been identified
+    - led to a false statistical analysis \& interpretation
 
 . . .
 
-* _2011_: CERN Neutrinos / OPERA Experiment
+* _Physics_: CERN / OPERA Experiment (2011)
     - [_faster-than-light neutrinos_](https://en.wikipedia.org/wiki/Faster-than-light_neutrino_anomaly)
         * People started gossiping about relativity violation...
     - caused by timing system failure in 2012
