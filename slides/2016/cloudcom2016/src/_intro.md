@@ -1,8 +1,8 @@
 <!-- Courtesy L.Nussbaum -->
 ### Validation in (Computer) Science
 
-\begin{textblock}{}(10.8,-1.5)
-            \includegraphics[width=34mm]{BigBangTheory.jpg}
+\begin{textblock}{0.25}(0.7,0.2)
+  \imgw{}{BigBangTheory.jpg}
 
-    \includegraphics[width=34mm]{The-Large-Hadron-Collider.jpg}
+  \imgw{}{The-Large-Hadron-Collider.jpg}
 \end{textblock}
