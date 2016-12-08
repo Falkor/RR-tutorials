@@ -1,7 +1,7 @@
 % =============================================================================
 % File:  tutorial-RR.tex --
 % Author(s): Sebastien Varrette (Sebastien.Varrette@uni.lu)
-% Time-stamp: <Thu 2016-12-08 13:29 svarrette>
+% Time-stamp: <Thu 2016-12-08 22:05 svarrette>
 %
 % Copyright (c) 2016 Sebastien Varrette<Sebastien.Varrette@uni.lu>
 %
@@ -12,9 +12,21 @@
 % http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf
 % =============================================================================
 
-\documentclass{beamer}
+\documentclass[t]{beamer}
 % \documentclass[draft]{beamer}
+
 \usepackage{_style}
+
+% Biblio
+\usepackage[style=verbose,autocite=footnote,maxnames=2,babel=hyphen,hyperref=true,abbreviate=false,mcite,backend=biber]{biblatex}
+\setbeamerfont{footnote}{size=\tiny}
+
+\addbibresource{biblio.bib}
+
+%\renewcommand{\footnotesize}{\tiny}
+% Removes icon in bibliography
+\setbeamertemplate{bibliography item}{}
+
 
 % The key part to use my theme -- if you precise nothing, the image that
 % illustrate the slides is assumed to be images/slides_image.jpg
@@ -128,5 +140,5 @@
 % mode: latex
 % mode: flyspell
 % mode: visual-line
-% TeX-master: "cloudcom2016.tex"
+% TeX-master: "tutorial-RR.tex"
 % End:
