@@ -123,6 +123,14 @@
 * _Psychology_:
     - [unreplicable study](https://en.wikipedia.org/wiki/Daryl_Bem#.22Feeling_the_Future.22_controversy) about extrasensory perception (ESP)
 
+* _Machine Learning_: [Trouble at the lab](http://www.economist.com/news/briefing/21588057-scientists-think-science-self-correcting-alarming-degree-it-not-trouble), The Economist, 2013
+
+\vspace*{-1em}
+\tiny
+
+> According to some estimates, three-quarters of published scientific papers in the field \newline of machine learning are bunk because of this "overfitting".
+>     _Sandy Pentlan, MIT_
+
 
 ### And in Other Sciences? ###
 
@@ -208,3 +216,29 @@
 * 6 months later: just _why_ did I do that?
 
 \exend
+
+
+### Why is it Hard to Reproduce? \hfill{\tiny (any Scientific Work)}
+
+
+* _Human error_:
+    - Experimenter _bias_ \hfill{}[\textit{crowdsourced research?}](http://www.nature.com/news/crowdsourced-research-many-hands-make-tight-work-1.18508)
+    - Programming _errors_ or data manipulation _mistakes_
+    - Poorly selected statistical test
+
+* There is just _no real incentive in doing so_:
+    - Legal barriers, _copyright_ \hfill{}[\textit{Many ongoing discussions in US}](http://web.stanford.edu/~vcs/talks/SC15-Nov182015-STODDEN.pdf)
+    - _Competition_ issue \hfill \textit{researchware, bibliometry, ...}
+    - Publication _bias_  \hfill \textit{only the idea matters, not the gory details...}
+    - Rewards for _positive/novel results_, not for \textit{consolidating} results
+
+. . .
+
+\wbegin{}
+
+* _Technical difficulty_:
+    - ~~Hardware and software evolve too quickly. It's not worth it~~
+    - ~~No resources for storing so much data/information~~
+    - ~~Lack of easy-to-use tools~~
+
+\wend

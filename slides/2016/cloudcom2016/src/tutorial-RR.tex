@@ -1,7 +1,7 @@
 % =============================================================================
 % File:  tutorial-RR.tex --
 % Author(s): Sebastien Varrette (Sebastien.Varrette@uni.lu)
-% Time-stamp: <Thu 2016-12-08 22:05 svarrette>
+% Time-stamp: <Fri 2016-12-09 11:02 svarrette>
 %
 % Copyright (c) 2016 Sebastien Varrette<Sebastien.Varrette@uni.lu>
 %
@@ -48,7 +48,7 @@
 \title{Reproducible Research at the Cloud Era}
 \subtitle{Overview and Open Challenges}
 
-\author{Sebastien Varrette}
+\author[Sebastien Varrette]{S. Varrette}
 \institute[PCOG Research unit]{
   Parallel Computing and Optimization Group (\href{http://pcog.uni.lu}{PCOG}),
   University of Luxembourg (\href{http://www.uni.lu}{UL}), Luxembourg
@@ -58,7 +58,7 @@
 % university logo. ADAPT ACCORDINGLY:
 \pgfdeclareimage[height=0.8cm]{logo}{images/logo_UL.pdf}
 
-\date{}
+\date{\url{http://RR-tutorials.rtfd.com}}
 
 %%%%%%%%%%%%% Body %%%%%%%%%%%%%%%
 \begin{document}
@@ -76,16 +76,61 @@
   }
 }
 
-%%___________________
-%\input{_me.md}
-%\input{_preamble.md}
+%___________________
+\input{_me.md}
+\input{_preamble.md}
 
 %____________________________________________________________
 \section{Introduction and Motivating Examples}
 \input{_intro.md}
 
+%____________________________________________________________
+\section{Reproducible Research}
+\input{_reproducible_research.md}
 
+%____________________________________________________________
+\section{Hands-on 1: Vagrant to Reproduce the Build of these Slides}
+\input{__vagrant.md}
 
+%____________________________________________________________
+\section{Hands-on 2: Docker}
+
+%______________________________________________________________________________________________
+\section{Hands-on 3: Reproducible Software Environment with EasyBuild}
+
+%______________________________________________________________________________________________
+\section{Best Practices and Review of some Reproducibility Tools}
+% \input{__ruby.md}
+% \input{__python.md}
+%
+% Dissemination Platforms
+%
+% Workflow Tracking and Research Environments:
+% - VisTrails
+% - Galaxy
+% - Sumatra
+% - CDE
+% - Synapse...
+%
+% Embedded Publishing
+% - Figshare, ActivePapers, Elsevier executable paper
+% - Verifiable Computational Research
+% - knitR
+% - Sweave
+%
+% Good Practice for Setting up a Laboratory Notebook
+% - Step 0: Taking Notes
+%   \input{__docs.md}
+% - Step 1: Sharing Code and Data
+% Git, Reprozip
+% - Step 2: Literate programming
+% with LaTeX and R: Sweave, knitR...
+% Ipython/Jupyter Notebook
+%
+% Automatic testing
+% - Bats, Travis, gitlab-CI, codeclimate....
+
+% Open Challenges in Numerical Repoducibility
 
 
 
