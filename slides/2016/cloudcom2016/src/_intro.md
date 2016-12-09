@@ -99,10 +99,23 @@
 
 ### And in Other Sciences? ###
 
+\begin{textblock}{0.3}(0.65,0.01)
+\piechart{0.4}{
+  9.8/Plagiarism,
+  21.3/Error,
+  43.4/Fraud,
+  14.2/Self-Plagiarism,
+  11.3/Others
+}
+\end{textblock}
+
+
 * _Biology_: Increase in _retracted papers_\footcite{Steen10},
-    - 26.6% fraud (data fabrication or falsification)
-    - 73.5% error (plagiarism, scientific mistake, ethical problems)
+    - **Fraud** (data fabrication or falsification)
+    - **Error** (plagiarism, scientific mistake, ethical problems)
          * see also [Reproducibility: A tragedy of errors](http://www.nature.com/news/reproducibility-a-tragedy-of-errors-1.19264)\footcite{Nature_Reproducibility16}
+         * cf.[Duke University scandal](http://www.nytimes.com/2011/07/08/health/research/08genes.html) with  scientific misconduct on lung cancer
+
     - High number of _failing clinical trials_
          * [Do We Really Know What Makes Us Healthy?](http://mescal.imag.fr/membres/arnaud.legrand/teaching/2011/EP_epidemiology.pdf), 2007
          * [Lies, Damned Lies, and Medical Science](http://mescal.imag.fr/membres/arnaud.legrand/teaching/2011/EP_lies.pdf), 2010
@@ -141,3 +154,57 @@
   \imgw{}{Faster-than-light-neutrino-anomaly.png}
 \end{textblock}
 }
+
+
+### What About You (as Rewiever) ?
+<!-- Courtesy A.Legrand -->
+
+\bbegin{}
+
+> "This may be an interesting contribution but..."
+
+\bend
+
+* This _average value_ must hide something
+* As usual, there is no _confidence interval_,
+     - I wonder about the variability and whether the difference is _significant_ or not
+
+. . .
+
+* Why is this graph in _logscale_?  How would it looks like otherwise?
+* That can't be true, I'm sure they _removed some points_
+* The authors decided to show only a subset of the data.
+     - I wonder what the rest looks like
+
+. . .
+
+* There is no label/legend/... What is the _meaning of this graph_?
+     - If only I could access the generation script
+
+
+### What About You (as Author) ?
+
+\bbegin{}
+
+* I thought I used the \textit{same parameters}...
+     - but I'm _getting different results_!
+
+\bend
+
+. . .
+
+* The new student wants to compare with my _last year' method_
+* My advisor asked me whether I took care of setting this or this...
+      - but _I can't remember_
+* The damned fourth reviewer asked for a major revision...
+      - he wants me to _change figure 3_ \frownie
+
+. . .
+
+\exbegin{}
+
+* _Which code / data set_ did I use to generate this figure?
+* It _worked yesterday_!
+* 6 months later: just _why_ did I do that?
+
+\exend
