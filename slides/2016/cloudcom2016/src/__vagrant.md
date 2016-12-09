@@ -62,9 +62,13 @@ $> brew cask install vagrant-manager # see http://vagrantmanager.com/
 
 ### Installation Notes: Windows / Linux
 
+\bbegin{}
+
 * Install [Oracle Virtualbox](https://www.virtualbox.org/)
 * Go on the [Download Page](http://www.vagrantup.com/downloads)
      - select the appropriate OS, in 64 bits versions
+
+\bend
 
 <!--
 > _Tip [Windows]:_ quickly open a command prompt to your project:
