@@ -88,16 +88,64 @@ Check that you can run `virtualbox` now.
 and follow the instructions.
 You need a reasonably new kernel version (3.10 or higher).
 
-### Windows (7 and above)
+### Windows (10, 7/8 should also be OK)
 
-__TODO__ with screenshots ?
+On Windows you should download and install the following tools:
 
-* Powershell
-* [Git](https://git-scm.com/): adapt environment variables
-* [Vagrant](https://www.vagrantup.com):
-* [Docker](https://www.docker.com/):
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads), download both:
+   - The [VirtualBox installer](http://download.virtualbox.org/virtualbox/5.1.10/VirtualBox-5.1.10-112026-Win.exe)
+   - The [Extension pack](http://download.virtualbox.org/virtualbox/5.1.10/Oracle_VM_VirtualBox_Extension_Pack-5.1.10-112026.vbox-extpack)
+
+First, install VirtualBox with the default settings. Note that a warning will be issued that your network connections will be temporarily impacted, you should continue.
+Then, run the downloaded extension pack (.vbox-extpack file), it will open within the VirtualBox Manager and you should let it install normally.
+
+* [Vagrant](https://www.vagrantup.com/downloads.html), download:
+  - The [Vagrant installer](https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1.msi)
+
+Proceed with the installation, no changes are required to the default setup.
+
+* [Git](https://git-scm.com/downloads), download:
+   - The [Git installer](https://github.com/git-for-windows/git/releases/download/v2.11.0.windows.1/Git-2.11.0-64-bit.exe)
+
+The Git installation requires a few changes to the defaults, make sure the following are selected in the installer:
+   - Select Components: Use a TrueType font in all console windows
+   - Adjusting your PATH environment: Use Git and optional Unix tools from the Windows Command Prompt
+   - Configuring the line ending conversions: Checkout Windows-style, commit Unix-style line endings
+   - Configuring the terminal emulator to use with Git Bash: Use MinTTY (the default terminal of MSYS2)
+   - Configuring extra options: Enable symbolic links
+
+![Git installer - 1](screenshot_git1.png)
+![Git installer - 2](screenshot_git2.png)
+![Git installer - 3](screenshot_git3.png)
+![Git installer - 4](screenshot_git4.png)
+![Git installer - 5](screenshot_git5.png)
+
+Please note that to clone a Git repository which contains symbolic links (symlinks), you **must** start a shell (Microsoft PowerShell in this example, but a Command Prompt - cmd.exe - or Git Bash shell would work out fine) **with elevated (Administrator) privileges**. This is required in order for git to be able to create symlinks on Windows:
+
+* Start Powershell:
+  1. In the Windows Start menu, type PowerShell
+  2. Normally PowerShell will appear as option on the top as "Best match"
+  3. Right click on it and select "Run as administrator"
+
+![Starting PowerShell](screenshot_powershell.png)
+
+A PowerShell window will appear and you can type your commands in it, e.g.:
+
+~~~bash
+cd $HOME
+git clone https://github.com/falkor/RR-tutorials.git
+cd RR-tutorials
+vagrant init -m ubuntu/trusty64
+vagrant up
+vagrant ssh
+sudo apt-get install -y git-core
+cd /vagrant
+make setup
+~~~
+
+* Optional - [Docker](https://www.docker.com/):
      - As a fallback solution for _older_ version of Windows (or Mac OS), you can use the [Docker Toolbox](https://www.docker.com/products/docker-toolbox):
-<https://docs.docker.com/engine/installation/windows/#/docker-for-windows>. It uses VirtualBox instead of the native virtualization technologies.
+<https://docs.docker.com/engine/installation/windows/#/docker-for-windows>. It uses VirtualBox instead of the Linux native virtualization technologies.
 
 ### Post-Installations checks
 
