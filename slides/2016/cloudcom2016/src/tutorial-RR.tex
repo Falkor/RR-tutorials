@@ -1,7 +1,7 @@
 % =============================================================================
 % File:  tutorial-RR.tex --
 % Author(s): Sebastien Varrette (Sebastien.Varrette@uni.lu)
-% Time-stamp: <Fri 2016-12-09 11:02 svarrette>
+% Time-stamp: <Fri 2016-12-09 16:31 svarrette>
 %
 % Copyright (c) 2016 Sebastien Varrette<Sebastien.Varrette@uni.lu>
 %
@@ -48,17 +48,25 @@
 \title{Reproducible Research at the Cloud Era}
 \subtitle{Overview and Open Challenges}
 
-\author[Sebastien Varrette]{S. Varrette}
-\institute[PCOG Research unit]{
+\author[Sebastien Varrette]{S\'ebastien Varrette, PhD}
+\institute[University of Luxembourg]{
   Parallel Computing and Optimization Group (\href{http://pcog.uni.lu}{PCOG}),
   University of Luxembourg (\href{http://www.uni.lu}{UL}), Luxembourg
+
+  \begin{tcolorbox}\centering
+    \url{http://RR-tutorials.rtfd.io}
+  \end{tcolorbox}
+
+  \textbf{Before the tutorial starts:} Visit\\
+  \url{https://goo.gl/l9mCsM}\\
+  for preliminary setup instructions!
 }
 
 % Mandatory to **declare** a logo to be placed on the bottom right -- normally the
 % university logo. ADAPT ACCORDINGLY:
 \pgfdeclareimage[height=0.8cm]{logo}{images/logo_UL.pdf}
 
-\date{\url{http://RR-tutorials.rtfd.com}}
+\date{}
 
 %%%%%%%%%%%%% Body %%%%%%%%%%%%%%%
 \begin{document}
@@ -68,100 +76,102 @@
   \titlepage
 \end{frame}
 
-% ......
-\frame{
-  \frametitle{Summary}
-  {\scriptsize
-    \tableofcontents
-  }
-}
+% % ......
+% \frame{
+%   \frametitle{Summary}
+%   {\scriptsize
+%     \tableofcontents
+%   }
+% }
 
 %___________________
 \input{_me.md}
 \input{_preamble.md}
-
-%____________________________________________________________
-\section{Introduction and Motivating Examples}
-\input{_intro.md}
-
-%____________________________________________________________
-\section{Reproducible Research}
-\input{_reproducible_research.md}
-
-%____________________________________________________________
-\section{Hands-on 1: Vagrant to Reproduce the Build of these Slides}
-\input{__vagrant.md}
-
-%____________________________________________________________
-\section{Hands-on 2: Docker}
-
-%______________________________________________________________________________________________
-\section{Hands-on 3: Reproducible Software Environment with EasyBuild}
-
-%______________________________________________________________________________________________
-\section{Best Practices and Review of some Reproducibility Tools}
-% \input{__ruby.md}
-% \input{__python.md}
-%
-% Dissemination Platforms
-%
-% Workflow Tracking and Research Environments:
-% - VisTrails
-% - Galaxy
-% - Sumatra
-% - CDE
-% - Synapse...
-%
-% Embedded Publishing
-% - Figshare, ActivePapers, Elsevier executable paper
-% - Verifiable Computational Research
-% - knitR
-% - Sweave
-%
-% Good Practice for Setting up a Laboratory Notebook
-% - Step 0: Taking Notes
-%   \input{__docs.md}
-% - Step 1: Sharing Code and Data
-% Git, Reprozip
-% - Step 2: Literate programming
-% with LaTeX and R: Sweave, knitR...
-% Ipython/Jupyter Notebook
-%
-% Automatic testing
-% - Bats, Travis, gitlab-CI, codeclimate....
-
-% Open Challenges in Numerical Repoducibility
+\input{_pre-install.md}
 
 
+% %____________________________________________________________
+% \section{Introduction and Motivating Examples}
+% \input{_intro.md}
 
-% ======================== END =========================
-\section*{Thank you for your attention...}
-\frame{
-  \frametitle{Questions?}
-  % ~~~~~~~~~~~~~~
-  \begin{columns}
-    \column{0.5\textwidth}
-    % \emph{Contact}\\
-    {\tiny
-      \emph{Sebastien Varrette}\\
-      ~~~~ \textit{mail:} \href{mailto:Sebastien.Varrette@uni.lu}{Sebastien.Varrette@uni.lu}\\
-      ~~~~ Office E-007\\
-      ~~~~ Campus Kirchberg\\
-      ~~~~ 6, rue Coudenhove-Kalergi\\
-      ~~~~ L-1359 Luxembourg
+% %____________________________________________________________
+% \section{Reproducible Research}
+% \input{_reproducible_research.md}
 
-    }
-    \column{0.5\textwidth}
-    % \scalebox{8}{\emph{?}}
-    \includegraphics[width=1.5in]{question.jpg}
-  \end{columns}
-  % Below is the table of content over 2 columns
-  \vfill
-  \begin{multicols}{2}
-    {\tiny \tableofcontents}
-  \end{multicols}
+% %____________________________________________________________
+% \section{Hands-on 1: Vagrant to Reproduce the Build of these Slides}
+% \input{__vagrant.md}
 
-}
+% %____________________________________________________________
+% \section{Hands-on 2: Docker}
+
+% %______________________________________________________________________________________________
+% \section{Hands-on 3: Reproducible Software Environment with EasyBuild}
+
+% %______________________________________________________________________________________________
+% \section{Best Practices and Review of some Reproducibility Tools}
+% % \input{__ruby.md}
+% % \input{__python.md}
+% %
+% % Dissemination Platforms
+% %
+% % Workflow Tracking and Research Environments:
+% % - VisTrails
+% % - Galaxy
+% % - Sumatra
+% % - CDE
+% % - Synapse...
+% %
+% % Embedded Publishing
+% % - Figshare, ActivePapers, Elsevier executable paper
+% % - Verifiable Computational Research
+% % - knitR
+% % - Sweave
+% %
+% % Good Practice for Setting up a Laboratory Notebook
+% % - Step 0: Taking Notes
+% %   \input{__docs.md}
+% % - Step 1: Sharing Code and Data
+% % Git, Reprozip
+% % - Step 2: Literate programming
+% % with LaTeX and R: Sweave, knitR...
+% % Ipython/Jupyter Notebook
+% %
+% % Automatic testing
+% % - Bats, Travis, gitlab-CI, codeclimate....
+
+% % Open Challenges in Numerical Repoducibility
+
+
+
+% % ======================== END =========================
+% \section*{Thank you for your attention...}
+% \frame{
+%   \frametitle{Questions?}
+%   % ~~~~~~~~~~~~~~
+%   \begin{columns}
+%     \column{0.5\textwidth}
+%     % \emph{Contact}\\
+%     {\tiny
+%       \emph{Sebastien Varrette}\\
+%       ~~~~ \textit{mail:} \href{mailto:Sebastien.Varrette@uni.lu}{Sebastien.Varrette@uni.lu}\\
+%       ~~~~ Office E-007\\
+%       ~~~~ Campus Kirchberg\\
+%       ~~~~ 6, rue Coudenhove-Kalergi\\
+%       ~~~~ L-1359 Luxembourg
+
+%     }
+%     \column{0.5\textwidth}
+%     % \scalebox{8}{\emph{?}}
+%     \includegraphics[width=1.5in]{question.jpg}
+%   \end{columns}
+%   % Below is the table of content over 2 columns
+%   \vfill
+%   \begin{multicols}{2}
+%     {\tiny \tableofcontents}
+%   \end{multicols}
+
+% }
 
 \newcounter{finalframe}
 \setcounter{finalframe}{\value{framenumber}}

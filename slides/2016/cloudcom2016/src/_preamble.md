@@ -1,16 +1,17 @@
-### Disclaimer
+### Disclaimer: Acknowledgements
 
-\bbegin{Acknowledgements}
+\bbegin{}
 
-* A **large** part of these slides were _courtesy_ borrowed, with permission, _from_:
+* A **large** part of these slides were _courtesy_ borrowed, with permission, from:
      - [Lucas Nussbaum](https://members.loria.fr/LNussbaum/) (INRIA, Univ. Lorraine)
      - [Arnaud Legrand](http://mescal.imag.fr/membres/arnaud.legrand/) (INRIA, Univ. Grenoble)
+     - [Valentin Plugaru](http://wwwfr.uni.lu/recherche/fstc/computer_science_and_communications_research_unit/membres/valentin_plugaru) (Univ. of Luxembourg)
      - and many others...
 
 \bend
 
 * In particular, to know more about _Reproducible Research_:
-    - [\alert{Webinars}](https://github.com/alegrand/RR_webinars) on Reproducible Research \hfill\myurl{https://github.com/alegrand/RR_webinars}
+    - [\alert{Webinars on Reproducible Research}](https://github.com/alegrand/RR_webinars)  \hfill\myurl{https://github.com/alegrand/RR_webinars}
 
     - [Reproducible build](https://reproducible-builds.org/) \hfill\myurl{https://reproducible-builds.org/}
          * initiative of various free software projects

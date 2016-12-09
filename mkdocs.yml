@@ -1,7 +1,7 @@
 site_name: Reproducible Research Tutorial
 pages:
 - Home: 'index.md'
-- Pre-Requisites/Setup: 'setup.md'
+- Pre-Requisites/Setup: 'setup/index.md'
 - Documentation (RTFD): 'rtfd.md'
 - Contributing:
   - 'Overview': 'contributing/index.md'
