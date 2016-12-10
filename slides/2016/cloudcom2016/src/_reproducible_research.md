@@ -80,21 +80,3 @@
          * Many parameters, very costly and hard to _\alert{reproduce}_
 
 \centering\imgw{0.9}{phdcomic.pdf}
-
-### Environment Management
-
-* Key issue: _Controlling/Providing your Environment_
-
-\bbegin{}
-
-An _environment_ is a \alert{set of tools and materials} that permits a \alert{complete
-reproducibility} of \textit{part/whole} experiment process.
-
-\bend
-
-
-* Two main approaches for \textit{controlling}:
-     1. _Preserving the mess_ by capturing the already set up environment
-     2. _Encourage cleanliness_ with several options:
-         - Using a constrained environment \hfill{}Sandboxed Ruby/Python
-         - Building your own environment   \hfill{}[Vagrant](https://www.vagrantup.com), [Docker](https://www.docker.com/)
