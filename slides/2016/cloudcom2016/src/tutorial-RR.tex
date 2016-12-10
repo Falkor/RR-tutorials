@@ -1,7 +1,7 @@
 % =============================================================================
 % File:  tutorial-RR.tex --
 % Author(s): Sebastien Varrette (Sebastien.Varrette@uni.lu)
-% Time-stamp: <Fri 2016-12-09 17:02 svarrette>
+% Time-stamp: <Sat 2016-12-10 00:21 svarrette>
 %
 % Copyright (c) 2016 Sebastien Varrette<Sebastien.Varrette@uni.lu>
 %
@@ -16,14 +16,14 @@
 % \documentclass[draft]{beamer}
 
 \usepackage{_style}
-
+\usepackage{figlatex}
 % Biblio
 \usepackage[style=verbose,autocite=footnote,maxnames=2,babel=hyphen,hyperref=true,abbreviate=false,mcite,backend=biber]{biblatex}
 \setbeamerfont{footnote}{size=\tiny}
 
 \addbibresource{biblio.bib}
 
-%\renewcommand{\footnotesize}{\tiny}
+% \renewcommand{\footnotesize}{\tiny}
 % Removes icon in bibliography
 \setbeamertemplate{bibliography item}{}
 
@@ -41,7 +41,7 @@
   }
 }
 
-\graphicspath{{images/}} % Add this directory to the searched paths for graphics
+\graphicspath{{images/}{images/author_reader_rr/}} % Add this directory to the searched paths for graphics
 
 
 %%%%%%%%%% Header %%%%%%%%%%%%
@@ -78,37 +78,38 @@
 
 % % ......
 % \frame{
-%   \frametitle{Summary}
-%   {\scriptsize
-%     \tableofcontents
-%   }
+% \frametitle{Summary}
+% {\scriptsize
+% \tableofcontents
+% }
 % }
 
-% %___________________
-% \input{_me.md}
-% \input{_preamble.md}
-\input{_pre-install.md}
+% %   ___________________
+%   \input{_me.md}
+%   \input{_preamble.md}
+%   \input{_pre-install.md}
 
 
-% %____________________________________________________________
-% \section{Introduction and Motivating Examples}
-% \input{_intro.md}
+% %   ____________________________________________________________
+%   \section{Introduction and Motivating Examples}
+%   \input{_intro.md}
 
-% %____________________________________________________________
-% \section{Reproducible Research}
-% \input{_reproducible_research.md}
+% %   ____________________________________________________________
+%   \section{Reproducible Research}
+\input{_reproducible_research.md}
 
-% %____________________________________________________________
+
+% % ____________________________________________________________
 % \section{Hands-on 1: Vagrant to Reproduce the Build of these Slides}
 % \input{__vagrant.md}
 
-% %____________________________________________________________
+% % ____________________________________________________________
 % \section{Hands-on 2: Docker}
 
-% %______________________________________________________________________________________________
+% % ______________________________________________________________________________________________
 % \section{Hands-on 3: Reproducible Software Environment with EasyBuild}
 
-% %______________________________________________________________________________________________
+% % ______________________________________________________________________________________________
 % \section{Best Practices and Review of some Reproducibility Tools}
 % % \input{__ruby.md}
 % % \input{__python.md}
@@ -130,7 +131,7 @@
 % %
 % % Good Practice for Setting up a Laboratory Notebook
 % % - Step 0: Taking Notes
-% %   \input{__docs.md}
+% % \input{__docs.md}
 % % - Step 1: Sharing Code and Data
 % % Git, Reprozip
 % % - Step 2: Literate programming
@@ -147,41 +148,41 @@
 % % ======================== END =========================
 % \section*{Thank you for your attention...}
 % \frame{
-%   \frametitle{Questions?}
+% \frametitle{Questions?}
 %   % ~~~~~~~~~~~~~~
-%   \begin{columns}
-%     \column{0.5\textwidth}
-%     % \emph{Contact}\\
-%     {\tiny
-%       \emph{Sebastien Varrette}\\
-%       ~~~~ \textit{mail:} \href{mailto:Sebastien.Varrette@uni.lu}{Sebastien.Varrette@uni.lu}\\
-%       ~~~~ Office E-007\\
-%       ~~~~ Campus Kirchberg\\
-%       ~~~~ 6, rue Coudenhove-Kalergi\\
-%       ~~~~ L-1359 Luxembourg
+% \begin{columns}
+%   \column{0.5\textwidth}
+%     %   \emph{Contact}\\
+%   {\tiny
+%   \emph{Sebastien Varrette}\\
+%   ~~~~ \textit{mail:} \href{mailto:Sebastien.Varrette@uni.lu}{Sebastien.Varrette@uni.lu}\\
+%   ~~~~ Office E-007\\
+%   ~~~~ Campus Kirchberg\\
+%   ~~~~ 6, rue Coudenhove-Kalergi\\
+%   ~~~~ L-1359 Luxembourg
 
-%     }
-%     \column{0.5\textwidth}
-%     % \scalebox{8}{\emph{?}}
-%     \includegraphics[width=1.5in]{question.jpg}
-%   \end{columns}
+% }
+%   \column{0.5\textwidth}
+%     %   \scalebox{8}{\emph{?}}
+%   \includegraphics[width=1.5in]{question.jpg}
+% \end{columns}
 %   % Below is the table of content over 2 columns
-%   \vfill
-%   \begin{multicols}{2}
-%     {\tiny \tableofcontents}
-%   \end{multicols}
+% \vfill
+% \begin{multicols}{2}
+%   {\tiny \tableofcontents}
+% \end{multicols}
 
 % }
 
 \newcounter{finalframe}
 \setcounter{finalframe}{\value{framenumber}}
 
-% %.......
+% % .......
 % \frame{
-%   \frametitle{}
-%   \vfill
-%   \centering \LARGE Appendix\footnote{notice the slide number below...}
-%   \vfill
+% \frametitle{}
+% \vfill
+% \centering \LARGE Appendix\footnote{notice the slide number below...}
+% \vfill
 % }
 
 \setcounter{framenumber}{\value{finalframe}}
