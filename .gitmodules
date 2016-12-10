@@ -6,6 +6,3 @@
 	path = .submodules/beamerthemeFalkor
 	url = https://github.com/Falkor/beamerthemeFalkor
 	branch = master
-[submodule "tests/helpers/assertions"]
-	path = tests/helpers/assertions
-	url = https://github.com/jasonkarns/bats-assert
