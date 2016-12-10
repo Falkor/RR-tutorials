@@ -19,5 +19,9 @@
 \url{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}
 \end{tcolorbox}
 
+\scriptsize
+\hfill{}**\alert{IF NOT YET DONE:}** \myurl{http://rr-tutorials.readthedocs.io/en/latest/setup/   }
 
 ### Grab the [Code/Data] Source
+
+* You should have [Git](http://git-scm.com) installed
