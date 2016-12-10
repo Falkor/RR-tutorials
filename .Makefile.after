@@ -19,7 +19,7 @@ doc docs:
 
 ifeq ($(BATS),)
 tests:
-	@echo "the Unit tests of Falkor's dotfiles rely on Bats which does not seem present on your system"
+	@echo "the Unit tests of this repository rely on Bats which does not seem present on your system"
 	@echo "See https://github.com/sstephenson/bats for details"
 	@echo "installation notes can be found in tests/setup_bats.sh"
 else
