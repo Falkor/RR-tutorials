@@ -1,7 +1,7 @@
 #! /usr/bin/env bats
 ################################################################################
 # 01-compile_RR-slides.bats
-# Time-stamp: <Sat 2016-12-10 01:47 svarrette>
+# Time-stamp: <Sat 2016-12-10 02:01 svarrette>
 #
 # Bats: Bash Automated Testing System -- https://github.com/sstephenson/bats
 # Installation: see README.md and setup_bats.sh
@@ -40,7 +40,7 @@ assert_slides_compile() {
     assert [ -f "${srcdir}/Makefile" ]
     assert [ -f "${srcdir}/${src}" ]
     run make -C "${srcdir}"
-    assert [ -f "${srcdir}/${pdf}" ]
+    #assert [ -f "${srcdir}/${pdf}" ]
     assert_success
 }
 
