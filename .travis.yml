@@ -18,10 +18,12 @@ addons:
     - texlive-latex-recommended
     - texlive-science
     - latex-beamer
+    - biblatex
     - pgf
     - pandoc
     - unzip
     - git-core
+    - latex-make
   hosts:
   - travis.dev
 env:
@@ -34,10 +36,14 @@ before_script:
 - mkdir -p $TEXMFLOCAL/tex/latex/
 - wget -q http://mirrors.ctan.org/install/macros/latex/contrib/tcolorbox.tds.zip
 - wget -q http://mirrors.ctan.org/macros/latex/contrib/floatflt.zip
+- wget -q http://mirrors.ctan.org/support/latex-make.zip
 - unzip -qq tcolorbox.tds.zip -d $TEXMFLOCAL
 - unzip -qq floatflt.zip
 - cd ./floatflt/ && latex floatflt.ins && cd -
 - cp ./floatflt/floatflt.sty $TEXMFLOCAL/tex/latex/
+- unzip -qq latex-make.zip
+- cd ./latex-make && latex latex-make.ins && cd -
+- cp ./latex-make/figlatex.sty $TEXMFLOCAL/tex/latex/
 - texhash
 script:
 - bats tests
