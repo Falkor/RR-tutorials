@@ -4,7 +4,7 @@ If for some reason you are unable to fulfill this pre-requisite, try to seat clo
 
 _Note_: in the following instructions, terminal commands are prefixed by a virtual prompt `$>`which obviously **does not** belong to the command.
 
-### Preliminaries
+## Preliminaries
 
 * Create in advance the various accounts for the **cloud services** we will use, _i.e._:
     - [Github](https://github.com/):
@@ -26,7 +26,7 @@ _Note_: in the following instructions, terminal commands are prefixed by a virtu
 
 * Follow the below custom instructions depending on your running platform
 
-### Mac OS X
+## Mac OS X
 
 Now that you have [Homebrew](http://brew.sh/) installed:
 
@@ -39,7 +39,7 @@ $> brew cask install vagrant-manager # see http://vagrantmanager.com/
 $> brew cask install docker          # install Docker -- https://docs.docker.com/engine/installation/mac/
 ~~~
 
-### Linux
+## Linux
 
 Use your distribution package manager to install the appropriate packages for [Vagrant](https://www.vagrantup.com):
 
@@ -88,7 +88,7 @@ Check that you can run `virtualbox` now.
 and follow the instructions.
 You need a reasonably new kernel version (3.10 or higher).
 
-### Windows
+## Windows
 
 On Windows (10, 7/8 should also be OK) you should download and install the following tools:
 
@@ -138,7 +138,7 @@ vagrant --version
      - As a fallback solution for _older_ version of Windows (or Mac OS), you can use the [Docker Toolbox](https://www.docker.com/products/docker-toolbox):
 <https://docs.docker.com/engine/installation/windows/#/docker-for-windows>. It uses VirtualBox instead of the Linux native virtualization technologies.
 
-### Post-Installations checks
+## Post-Installations checks
 
 __Git__:
 
