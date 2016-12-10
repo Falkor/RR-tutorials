@@ -2,7 +2,7 @@
 
 #  Tutorial "Reproducible Research at the Cloud Era"
 
-[![By svarrette](https://img.shields.io/badge/by-svarrette-blue.svg)](https://varrette.gforge.uni.lu) [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html)[![GitHub Project](https://img.shields.io/badge/sources-Github-green.svg)](https://github.com/Falkor/RR-tutorials/) [![GitHub issues](https://img.shields.io/github/issues/Falkor/RR-tutorials.svg)](https://github.com/Falkor/RR-tutorials/issues/) [![GitHub forks](https://img.shields.io/github/forks/Falkor/RR-tutorials.svg?style=social&label=Fork)](https://github.com/Falkor/RR-tutorials)
+[![By svarrette](https://img.shields.io/badge/by-svarrette-blue.svg)](https://varrette.gforge.uni.lu) [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html)[![GitHub Project](https://img.shields.io/badge/sources-Github-green.svg)](https://github.com/Falkor/RR-tutorials/) [![GitHub issues](https://img.shields.io/github/issues/Falkor/RR-tutorials.svg)](https://github.com/Falkor/RR-tutorials/issues/) [![Build Status](https://travis-ci.org/Falkor/RR-tutorials.svg?branch=master)](https://travis-ci.org/Falkor/RR-tutorials) [![GitHub forks](https://img.shields.io/github/forks/Falkor/RR-tutorials.svg?style=social&label=Fork)](https://github.com/Falkor/RR-tutorials)
 
 
 

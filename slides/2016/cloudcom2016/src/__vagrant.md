@@ -1,10 +1,4 @@
 
-###  What is [Vagrant](http://vagrantup.com/) ?
-
-\hfill\myurl{http://vagrantup.com/}
-
-\includegraphics[width=\textwidth]{screenshot_vagrant}
-
 ### What is [Vagrant](http://vagrantup.com/) ?
 
 \wbegin{}
@@ -13,178 +7,116 @@
 
 \wend
 
-* Command line tool
-* Automates VM creation with
-    - VirtualBox
-    - VMWare etc.
-* Integrates well with configuration management tools
+* _Command line_ tool \hfill{}`vagrant [...]`
+* Easy and Automatic per-project VM management
+    - Supports many hypervisors: [VirtualBox](https://www.virtualbox.org/), [VMWare](http://www.vmware.com/)...
+    - Easy text-based configuration (Ruby syntax) \hfill{}`Vagrantfile`
+* Supports _provisioning_ through configuration management tools
     - Shell
-	- Puppet etc.
+	- [Puppet](https://puppet.com/)    \hfill\myurl{https://puppet.com/}
+    - [Salt](https://saltstack.com/)...\hfill\myurl{https://saltstack.com/}
 
-####
+\exbegin{}\centering
 
-\centering
-Runs on Linux, Windows, MacOS
+_Cross-platform_: runs on Linux, Windows, MacOS
+
+\exend
 
 
-### Why use Vagrant?
+### Installation Notes
 
-* Create new VMs quickly and easily: only one command!
+\begin{textblock}{0.3}(0.67,0.14)
+  \imgw{0.5}{screenshot_vagrant_manager.png}
+  \imgw{0.5}{screenshot_vagrant_manager2.png}
+\end{textblock}
 
-\command{vagrant up}
+\myurl{http://rr-tutorials.readthedocs.io/en/latest/setup/}
 
-* Keep the number of VMs under control
-     - All configuration in `VagrantFile`
-* Reproducability
-     - Identical environment in development and production
-* Portability
-     - _avoid_ sharing 4 GB VM disks images
-	 - [Vagrant Cloud](https://vagrantcloud.com/) to share your images
-* Collaboration made easy:
-\begin{cmdline}
-\cmdlineentry{git clone ...}\\
-\cmdlineentry{vagrant up}\\
-\end{cmdline}
-
-### Installation Notes: Mac OS
-
-* Best done using [Homebrew](http://brew.sh/) and [Cask](http://sourabhbajaj.com/mac-setup/Homebrew/Cask.html)
+* _Mac OS X_:
+    - best done using [Homebrew](http://brew.sh/) and [Cask](http://sourabhbajaj.com/mac-setup/Homebrew/Cask.html)
 
 ~~~bash
 $> brew install caskroom/cask/brew-cask
 $> brew cask install virtualbox    # install virtualbox
 $> brew cask install vagrant
-$> brew cask install vagrant-manager # see http://vagrantmanager.com/
+$> brew cask install vagrant-manager # cf http://vagrantmanager.com/
 ~~~
 
-\hfill{}\includegraphics[height=0.2\textheight]{screenshot_vagrant_manager.png}\ \includegraphics[height=0.2\textheight]{screenshot_vagrant_manager2.png}
+
+* _Windows / Linux_:
+    - install [Oracle Virtualbox](https://www.virtualbox.org/) and the Extension Pack
+    - install [Vagrant](https://www.vagrantup.com/downloads.html)
 
 
-### Installation Notes: Windows / Linux
+### Why use Vagrant?
 
-\bbegin{}
-
-* Install [Oracle Virtualbox](https://www.virtualbox.org/)
-* Go on the [Download Page](http://www.vagrantup.com/downloads)
-     - select the appropriate OS, in 64 bits versions
-
-\bend
-
-<!--
-> _Tip [Windows]:_ quickly open a command prompt to your project:
->    `shift` + right-clicking the project folder, then "`open command window here`".
--->
-
-* _Notes for windows users_:
-    - you will also need both [PuTTY and PuTTYGen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-    - Vagrant boxes are located in `%userprofile%/.vagrant.d/boxes`
-    - To configure the appropriate Putty profile:
-	     * run _`vagrant ssh-config`_ to collect IP and port (after `vagrant up`)
-		 * load `%userprofile%/.vagrant.d/insecure_public_key`
-		 * Use `Save Public Key`to convert the OpenSSH key to PPK format
-		 * Create the PuttY profile accordingly (username: `vagrant`)
-
-
-
-<!--
-
-### Definition
-
-* _Host_: Host operating system (Windows, Mac, RHEL),
-* _Guest_: Guest operating system aka the VM
-      - Ubuntu, Debian, CentOS...
-* _Provider_: Provider of virtual machines or containers used
-      - [VirtualBox](https://www.virtualbox.org/) is upstream default
-* _Provisioner_: Configuration management system to set up (provision) your machine
-	- Puppet etc.
-* _Vagrant box_: Package format for the images
-* _`Vagrantfile`_:  project configuration and provisioning
-
--->
+* Create new VMs quickly and easily: only one command!
+     - `vagrant up`
+* Keep the number of VMs under control
+     - All configuration in `VagrantFile`
+* _Reproducability_
+     - Identical environment in development and production
+* _Portability_
+     - _avoid_ sharing 4 GB VM disks images
+	 - [Vagrant Cloud](https://vagrantcloud.com/) to share your images
+* _Collaboration made easy_:
+\begin{cmdline}
+\cmdlineentry{git clone ...}\\
+\cmdlineentry{vagrant up}\\
+\end{cmdline}
 
 ### Minimal default setup
 
 \command{vagrant init [-m] <user>/<name>\hfill\textit{\# setup vagrant cloud image}}
 
-* A `Vagrantfile` is configured
+* A `Vagrantfile` is configured for box `<user>/<name>`
+     - Find existing box: [Vagrant Cloud](https://vagrantcloud.com/) \hfill\myurl{https://vagrantcloud.com/}
+     - You can have multiple (named) box within the **same** `Vagrantfile`
+           * See [`ULHPC/puppet-sysadmins/Vagrantfile`](https://github.com/ULHPC/puppet-sysadmins/blob/devel/Vagrantfile)
 
-. . .
+\cbegin{0.57\textwidth}
 
-\command{vagrant up \hfill\textit{\# boot the box(es) set in the Vagrantfile}}
-
-* The base box is downloaded and stored locally
-    - in `~/.vagrant.d/boxes/`
-* A new VM is created and configured with the base box as template
-* The VM is booted and (eventually) provisioned
-
-. . .
-
-\command{vagrant ssh \hfill\textit{\# connect inside it}}
-
-### Find a vagrant box
-
-- [Vagrant Cloud](https://vagrantcloud.com/) \hfill\myurl{https://vagrantcloud.com/}
-- [VagrantBox.es](https://vagrantcloud.com/) \hfill\myurl{http://www.vagrantbox.es/}
-
-. . .
-
-\toyou
-
-~~~bash
-$> vagrant init ubuntu/trusty64  # Ubuntu Server 14.04 LTS
-$> vagrant up
-$> vagrant ssh
+~~~ruby
+Vagrant.configure(2) do |config|
+   config.vm.box = 'ubuntu/trusty64'
+   config.ssh.insert_key = false
+end
 ~~~
 
-\vspace*{-2em}
-\cbegin{0.5\textwidth}
-
-\tiny
+\column{0.4\textwidth}\tiny
 
 | Box name                     | Description               |
 |------------------------------|---------------------------|
 | `ubuntu/trusty64`            | Ubuntu Server 14.04 LTS   |
 | `centos/7`                   | CentOS Linux 7 x86_64     |
 | `debian/jessie64`            | Vanilla Debian 8 "Jessie" |
-| `jhcook/osx-elcapitan-10.11` | OS X 10.11 El Capitan     |
-|                              |                           |
-
-\column{0.5\textwidth}
-
-* Once within the box:
-     - `/vagrant`: root directory hosting `Vagrantfile`
-
-
-
 
 \cend
 
 
 
 
-### Configuring Vagrant
 
-* Minimal `Vagrantfile` (Ruby syntax)
+### Pulling and Running a Vagrant Box
 
-~~~ruby
-VAGRANTFILE_API_VERSION = '2'
+\command{vagrant up \hfill\textit{\# boot the box(es) set in the Vagrantfile}}
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-   config.vm.box = 'svarrette/centos-7-puppet'
-   config.ssh.insert_key = false
-end
-~~~
+* Base box is downloaded and stored locally \hfill{}`~/.vagrant.d/boxes/`
+* A new VM is created and configured with the base box as template
+     - The VM is booted and (eventually) provisioned
+     -  Once within the box: `/vagrant` = directory hosting `Vagrantfile`
 
-* Configure Multiple box within the **same** `Vagrantfile`
-     - See [`ULHPC/puppet-sysadmins/Vagrantfile`](https://github.com/ULHPC/puppet-sysadmins/blob/devel/Vagrantfile)
-
-
-
-### Vagrant Box Status / Stop
+. . .
 
 \command{vagrant status \hfill\textit{\# State of the vagrant box(es)}}
 
 . . .
+
+\command{vagrant ssh \hfill\textit{\# connect inside it, CTRL-D to exit}}
+
+
+
+### Stopping Vagrant Box
 
 \command{vagrant \{ destroy | halt \} \hfill\textit{\# destroy / halt}}
 
@@ -193,15 +125,27 @@ end
 	 - reset changes / tests / errors with `vagrant destroy`
 	 - commit changes by generating a new version of the box
 
-<!--
 
-~~~bash
-$> vagrant destroy
-$> vagrant up
-$> vagrant ssh
-~~~
+### Back to Hands-on 1
 
--->
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+
+* **\alert{Steps [1-3]}** to cover the following elements:
+    - _Basic Usage of Vagrant_
+    - _Build these Slides_
+           * find the prerequisite software environment \hfill{}`apt-get`
+           * [un]common mix here: `make`, `latex-beamer`, `biber`, `pandoc`...
+
+\wend
+
+<!-- - design a provisioning script -->
+<!-- - commit / package the updated box (for incremental share) -->
+
+### Vagrant Box Provisioning
+
+* Once you have a
+
+
 
 ### Vagrant Box Generation
 

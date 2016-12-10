@@ -138,7 +138,7 @@ vagrant --version
      - As a fallback solution for _older_ version of Windows (or Mac OS), you can use the [Docker Toolbox](https://www.docker.com/products/docker-toolbox):
 <https://docs.docker.com/engine/installation/windows/#/docker-for-windows>. It uses VirtualBox instead of the Linux native virtualization technologies.
 
-## Post-Installations checks
+### Post-Installations checks
 
 __Git__:
 

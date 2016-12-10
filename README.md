@@ -1,9 +1,9 @@
 -*- mode: markdown; mode: visual-line; fill-column: 80 -*-
 
-[![By svarrette](https://img.shields.io/badge/by-svarrette-blue.svg)](https://varrette.gforge.uni.lu) [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![GitHub issues](https://img.shields.io/github/issues/Falkor/RR-tutorials.svg)](https://github.com/Falkor/RR-tutorials/issues/) [![Documentation Status](https://readthedocs.org/projects/rr-tutorials/badge/?version=latest)](http://rr-tutorials.readthedocs.io/en/latest/?badge=latest) [![](https://img.shields.io/badge/webinars-Reproducible_Research-green.svg?style=flat-square)](https://github.com/alegrand/RR_webinars)
+[![By svarrette](https://img.shields.io/badge/by-svarrette-blue.svg)](https://varrette.gforge.uni.lu) [![Licence](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html) [![GitHub issues](https://img.shields.io/github/issues/Falkor/RR-tutorials.svg)](https://github.com/Falkor/RR-tutorials/issues/) [![Documentation Status](https://readthedocs.org/projects/rr-tutorials/badge/?version=latest)](http://rr-tutorials.readthedocs.io/en/latest/?badge=latest) [![Build Status](https://travis-ci.org/Falkor/RR-tutorials.svg?branch=master)](https://travis-ci.org/Falkor/RR-tutorials) [![](https://img.shields.io/badge/webinars-Reproducible_Research-green.svg?style=flat-square)](https://github.com/alegrand/RR_webinars)
 
 
-       Time-stamp: <Wed 2016-12-07 22:05 svarrette>
+       Time-stamp: <Sat 2016-12-10 21:57 svarrette>
 
          _____                          _            _ _     _        _____                              _
         |  __ \                        | |          (_) |   | |      |  __ \                            | |
@@ -17,10 +17,6 @@
 # Tutorial "Reproducible Research at the Cloud Era"
 
 This repository hosts documents, material and information related to the tutorial "Reproducible Research at the Cloud Era" given during the [IEEE CloudCom 2016](http://2016.cloudcom.org/) conference.
-
-
-
-
 
 ## Installation / Repository Setup
 
@@ -46,6 +42,32 @@ Later on, you can upgrade the [Git submodules](.gitmodules) to the latest versio
 If upon pulling the repository, you end in a state where another collaborator have upgraded the Git submodules for this repository, you'll end in a dirty state (as reported by modifications within the `.submodules/` directory). In that case, just after the pull, you **have to run** the following to ensure consistency with regards the Git submodules:
 
     $> make update
+
+
+## Tutorial Slides and Instructions
+
+The latest version of the tutorial is available online:
+
+<http://RR-tutorials.readthedocs.io>
+
+As for the slides used during the "Reproducible Research at the Cloud Era" tutorial given during the [IEEE CloudCom 2016](http://2016.cloudcom.org/) conference., you will find them in `slides/2016/cloudcom2016`
+
+* These slides are based on [LaTeX Beamer](http://ctan.mackichan.com/macros/latex/contrib/beamer/doc/beameruserguide.pdf)
+* LaTeX Sources are located in `slides/2016/cloudcom2016/src`
+* LaTeX Sources compilation relies on the following tools:
+     - [GNU Make](http://www.gnu.org/software/make/)
+     - A complete working LaTeX environment (including the `pdflatex` compiler).
+
+       ~~~bash
+       $> brew cask install mactex   # Mac OS with HomeBrew -- see brew.sh
+       $> apt-get install latex-beamer texlive-latex-extra   # Debian/Ubuntu
+       ~~~
+
+     - [Pandoc](http://pandoc.org/), a universal document converter. Indeed, since producing LaTeX Beamer slides can be heavily time consuming, one way found to deeply accelerate the production of slides is to get rid of the LaTeX syntax in favor of  [markdown](https://daringfireball.net/projects/markdown/syntax), an easy-to-read, easy-to-write plain text format (files with `.md` extension). In this case, [Pandoc](http://pandoc.org/) is used to convert `.md` files into LaTeX Beamer `.md.tex` ones.
+
+
+
+
 
 ## Issues / Feature request
 

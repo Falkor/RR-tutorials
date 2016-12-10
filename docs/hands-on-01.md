@@ -10,7 +10,7 @@ In this context, we will:
 2. create a _recipe_ that would be used to _provision_ an empty box automatically
 3. commit and repackage the modified box for further sharing on [Vagrant Cloud](https://vagrantcloud.com/)
 
-## Step 0
+## Step 0: Pre-requisites
 
 You **should** have finalized the setup steps before going further -- see [setup instructions](/setup/).
 
@@ -31,7 +31,7 @@ $> git submodule init
 $> git submodule update
 ~~~
 
-## Pulling and running an existing Vagrant box
+## Step 2: Pulling and running an existing Vagrant box
 
 In this case, you should have a `Vagrantfile` at the root of the cloned repository.
 Take a look at it
@@ -128,4 +128,28 @@ The program 'figlet' can be found in the following packages:
 So you can always rollback to a stable configuration by destroying (with `vagrant destroy`) a messed up VM.
 
 
-## Step 2: A first attempt to reproduce the slides
+## Step 3: A first attempt to reproduce the slides
+
+So let's configure the Vagrant box to make it able to compile the slides used in this tutorial!
+
+Make a first try -- it __should fail__:
+
+~~~bash
+$> vagrant up
+$> vagrant ssh
+$> cd /vagrant/slides/2016/cloudcom2016/src
+$> make
+~~~
+
+So you will need to install the prerequisite software environment necessary to build these slides
+
+## Step 3: Install the necessary software environment
+
+**Hint** (from the author _i.e._ me):
+
+> I use LaTeX Beamer with Pandoc
+
+
+
+
+I use an [un]common mix here: `make`, `latex-beamer`, `biber`, `pandoc`.
