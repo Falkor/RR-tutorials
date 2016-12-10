@@ -1,7 +1,7 @@
 % =============================================================================
 % File:  tutorial-RR.tex --
 % Author(s): Sebastien Varrette (Sebastien.Varrette@uni.lu)
-% Time-stamp: <Sat 2016-12-10 00:21 svarrette>
+% Time-stamp: <Sat 2016-12-10 10:09 svarrette>
 %
 % Copyright (c) 2016 Sebastien Varrette<Sebastien.Varrette@uni.lu>
 %
@@ -16,6 +16,7 @@
 % \documentclass[draft]{beamer}
 
 \usepackage{_style}
+%\usepackage{rotating}
 \usepackage{figlatex}
 % Biblio
 \usepackage[style=verbose,autocite=footnote,maxnames=2,babel=hyphen,hyperref=true,abbreviate=false,mcite,backend=biber]{biblatex}
@@ -46,7 +47,7 @@
 
 %%%%%%%%%% Header %%%%%%%%%%%%
 \title{Reproducible Research at the Cloud Era}
-\subtitle{Overview and Open Challenges}
+\subtitle{Overview, Hands-on and Open Challenges}
 
 \author[Sebastien Varrette]{S\'ebastien Varrette, PhD}
 \institute[University of Luxembourg]{\vspace*{-1em}
@@ -59,7 +60,7 @@
 
   \textbf{\alert{Before the tutorial starts}:} Visit\\
   \url{https://goo.gl/l9mCsM}\\
-  for preliminary setup instructions!
+  for \textit{preliminary setup instructions}!
 }
 
 % Mandatory to **declare** a logo to be placed on the bottom right -- normally the
@@ -96,12 +97,14 @@
 
 % %   ____________________________________________________________
 %   \section{Reproducible Research}
-\input{_reproducible_research.md}
+%\input{_reproducible_research.md}
+% \subsection{Controlling and Providing Your Environment}
+\input{_environment_management.md}
 
-
-% % ____________________________________________________________
-% \section{Hands-on 1: Vagrant to Reproduce the Build of these Slides}
-% \input{__vagrant.md}
+% ____________________________________________________________
+\section{Hands-on 1: Reproducibility the DIY Way}
+\input{_hand-on-1.md}
+%\input{__vagrant.md}
 
 % % ____________________________________________________________
 % \section{Hands-on 2: Docker}
