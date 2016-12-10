@@ -22,6 +22,7 @@ addons:
     - pandoc
     - unzip
     - git-core
+    - latex-make
   hosts:
   - travis.dev
 env:
