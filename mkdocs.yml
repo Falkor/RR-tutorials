@@ -2,7 +2,7 @@ site_name: Reproducible Research Tutorial
 pages:
 - Home: 'index.md'
 - Pre-Requisites/Setup: 'setup/index.md'
-- Hands-On 1 / (basic) Vagrant: '01-hands-on-vagrant-basis.md'
+- Hands-On 1 / (basic) Vagrant: 'hands-on-01.md'
 - Hands-On 3 / Docker: '03-hands-on-docker.md'
 - Documentation (RTFD): 'rtfd.md'
 - Contributing:

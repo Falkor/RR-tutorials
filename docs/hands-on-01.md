@@ -1,5 +1,7 @@
-The objective of this first exercise is to familiarize you with [Vagrant]() and see how it can be used to
-bundle an environment out of a recipe.
+
+# Challenge 1: Reproduce the Build of these Slides
+
+The objective of this first exercise is to familiarize you with [Vagrant](https://www.vagrantup.com) and see how it can be used to bundle an environment out of a recipe.
 
 In this context, we will:
 
