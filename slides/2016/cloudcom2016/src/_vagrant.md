@@ -379,6 +379,8 @@ $> vagrant box add packer/<os>-<version>-<arch>/<os>-<version>-<arch>.box
 
 . . .
 
+\vspace*{-0.5em}
+
 * _Master / Client_ Setup
     - server (running as `puppet`) listening on 8140 on the Puppet Master
     - client (running as `root`) on each managed node.
@@ -388,6 +390,201 @@ $> vagrant box add packer/<os>-<version>-<arch>/<os>-<version>-<arch>.box
 
 \command{puppet agent ---test [---noop] [---environment <environment>]}
 
+
+### Puppet DSL
+
+* A Declarative Domain Specific Language (DSL)
+    - defines _STATES_ (and **not** procedures)
+* Puppet code is written in _manifests_ \hfill{}`<file>.pp`
+    - _declare resources_ that affect elements of the system
+        * each resource has a type (`package`, `service`, `file`, `user`, `exec` ...)
+        * each resource has a **uniq** title
+    - resources are grouped in _classes_
+* Classes and configuration files are organized in _modules_
+* _Example_ of resources types:
+
+\cbegin{0.33\textwidth}
+
+~~~ruby
+file { '/etc/motd':
+  content => "Toto"
+}
+~~~
+
+\column{0.33\textwidth}
+
+~~~ruby
+package { 'openssh':
+  ensure => present,
+}
+~~~
+
+\column{0.33\textwidth}
+
+~~~ruby
+service { 'httpd':
+  ensure => running,
+  enable => true,
+}
+~~~
+
+\cend
+
+
+### Puppet Classes
+
+* _Containers_ of different resources
+    - Can have parameters since Puppet 2.6
+
+~~~ruby
+class mysql (
+  $root_password = 'default_value',
+  $port          = '3306',
+) {
+  package { 'mysql-server':
+    ensure => present,
+  }
+  service { 'mysql':
+    ensure    => running,
+  }
+  [...]
+}
+~~~
+
+### Puppet Classes Declaration
+
+* To use a class previously defined, we **declare** it
+* "Old style" class declaration, without parameters:
+
+~~~ruby
+include mysql
+~~~
+
+* "New style" (from Puppet 2.6) with explicit parameters:
+
+~~~ruby
+class { 'mysql':
+  root_password => 'my_value',
+  port          => '3307',
+}
+~~~
+
+* A class is **uniq** to a given node
+
+
+### Puppet Defines
+
+* Similar to parametrized classes ...
+     - ... but can be used multiple times (with different titles).
+
+
+
+~~~ruby
+# Definition of a define
+define apache::virtualhost (
+  $ensure   = present,
+  $template = 'apache/virtualhost.conf.erb' ,
+  [...] ) {
+  file { "ApacheVirtualHost_${name}":
+    ensure  => $ensure,
+    content => template("${template}"),
+  }
+}
+# Declaration of a define:
+apache::virtualhost { 'www.uni.lu':
+  template => 'site/apache/www.uni.lu-erb'
+}
+~~~
+
+### Puppet Variables and Facts
+
+* Can be defined in different places and by different actors:
+    - by client nodes as facts
+    - defined by users in Puppet code, on Hiera on in the ENC
+    - built-in and be provided directly by Puppet
+* Facts using `facter`:
+    - runs on clients and collects facts that the server can use as variables
+
+\vspace*{-1em}
+\cbegin{0.5\textwidth}
+
+~~~bash
+$> facter
+architecture => x86_64
+fqdn => toto.uni.lu
+kernel => Linux
+memorytotal => 16.00 GB
+operatingsystem => Centos
+operatingsystemrelease => 6.3
+osfamily => RedHat
+virtual => physical
+[...]
+~~~
+
+\column{0.5\textwidth}
+
+* Can be used outside Puppet
+* Good tool to _abstract_ your environment
+    - permits _reproducible_ and cross-platform developments
+
+\cend
+
+
+
+
+### Puppet User Variables
+
+* In Puppet manifests:
+
+~~~ruby
+$role = 'mail'
+$package = $::operatingsystem ? {
+    /(?i:Ubuntu|Debian|Mint)/ => 'apache2',
+    default                   => 'httpd',
+}
+~~~
+
+* In an External Node Classifier (ENC)
+     - Common ENC: Puppet DashBoard, the Foreman, Puppet Enterprise.
+* In an Hiera backend
+
+~~~ruby
+$syslog_server = hiera(syslog_server)
+~~~
+
+### Puppet Nodes
+
+* A **node**/system is identified  by its **certname**
+     - defaults to the node's fqdn
+
+\vspace*{-1em}
+\cbegin{0.5\textwidth}
+
+~~~ruby
+node 'web01' {
+  include apache
+}
+~~~
+
+\column{0.5\textwidth}
+
+~~~ruby
+node /^www\d+$/ {
+  include apache
+}
+~~~
+
+\cend
+
+* Nodes classification can be done by External Node Classifier (ENC)
+    -  Puppet DashBoard, The Foreman and Puppet Enterprise
+
+* Nodes classification can be done also by Hiera
+    - In `/etc/puppet/manifests/site.pp`
+
+    ~~~ruby
+    hiera_include('classes')
+    ~~~
 
 ### Vagrant Puppet Provisionning
 
@@ -405,3 +602,8 @@ config.vm.provision :puppet  do |puppet|
     puppet.options = [ '-v','--report','--show_diff','--pluginsync' ]
 end
 ~~~
+
+. . .
+
+\vspace*{-1em}
+\toyou{\just{3}{\textbf{\alert{... Or not \smiley (no time)}}}}
