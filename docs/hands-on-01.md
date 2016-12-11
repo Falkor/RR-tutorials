@@ -143,13 +143,20 @@ $> make
 
 So you will need to install the prerequisite software environment necessary to build these slides
 
-## Step 3: Install the necessary software environment
+## Step 4: Install the missing software to build the slides
 
-**Hint** (from the author _i.e._ me):
+It's time to face the reality of reproducibility: install the **missing packages** to permit a successful building of these slides.
 
-> I use LaTeX Beamer with Pandoc
+* __Hint 1__ ask the author _i.e._ me how he did it -- _That might help.... or not_
 
+> "I use LaTeX Beamer with Pandoc"
 
+* __Hint 2__: find a `README.md` with some info
 
+If you miss a file or configuration file, check the missing one on <http://packages.ubuntu.com/> (in `Search the contents of packages` for Distribution 'Trusty')
 
-I use an [un]common mix here: `make`, `latex-beamer`, `biber`, `pandoc`.
+## Step 5: Simple Provisioning
+
+Now you have a working  _procedure_ to setup an **environment able to build the slides**, it's time to _bundle it_ for provisioning the box upon boot.
+
+* Prepare a script to install the missing

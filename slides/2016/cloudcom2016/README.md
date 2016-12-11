@@ -3,7 +3,7 @@
 
 Copyright (c) 2016 [Sebastien Varrette](mailto:<Sebastien.Varrette@uni.lu>)
 
-        Time-stamp: <Sat 2016-12-10 22:15 svarrette>
+        Time-stamp: <Sun 2016-12-11 00:40 svarrette>
 
 ------------------------------------------------------------------
 # Slides for the Tutorial "Reproducible Research at the Cloud Era"
@@ -44,10 +44,10 @@ Their compilation relies on the following tools:
   $> brew install pandoc
   ```
 
-* On Linux, install the packages `make texlive pandoc` using your package installer (`yum` or `apt-get`)
+* On Linux, install the following packages using your package installer (`yum` or `apt-get`). _Ex_:
 
   ```bash
-  $> apt-get install make latex-beamer pandoc   # See also .root/bin/ubuntu-bootstrap.sh
+  $> apt-get install make latex-beamer biber texlive-fonts-recommended texlive-latex-extra 	texlive-science latex-make # See also .root/bin/ubuntu-bootstrap.sh
   ```
 
 ### Compilation

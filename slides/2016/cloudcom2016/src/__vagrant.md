@@ -85,11 +85,11 @@ end
 
 \column{0.4\textwidth}\tiny
 
-| Box name                     | Description               |
-|------------------------------|---------------------------|
-| `ubuntu/trusty64`            | Ubuntu Server 14.04 LTS   |
-| `centos/7`                   | CentOS Linux 7 x86_64     |
-| `debian/jessie64`            | Vanilla Debian 8 "Jessie" |
+| Box name                  | Description               |
+|---------------------------|---------------------------|
+| `ubuntu/trusty64`         | Ubuntu Server 14.04 LTS   |
+| `centos/7`                | CentOS Linux 7 x86_64     |
+| `debian/contrib-jessie64` | Vanilla Debian 8 "Jessie" |
 
 \cend
 
@@ -130,7 +130,7 @@ end
 
 \wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
 
-* **\alert{Steps [1-3]}** to cover the following elements:
+* **\alert{Steps [1-4]}** to cover the following elements:
     - _Basic Usage of Vagrant_
     - _Build these Slides_
            * find the prerequisite software environment \hfill{}`apt-get`
@@ -141,38 +141,52 @@ end
 <!-- - design a provisioning script -->
 <!-- - commit / package the updated box (for incremental share) -->
 
-### Vagrant Box Provisioning
+### Vagrant Box \just{2-}{Inline }Provisioning
 
-* Once you have a
+* Now you have \textit{hopefully} a working _documented procedure_
+     - it's time to _bundle it_ for provisioning the box upon boot
+     - key for sustainable reproducible environment
 
+* Simple case: **\alert{inline}** provisioning _i.e._ list commands to run
 
+. . .
 
-### Vagrant Box Generation
-
-* You might rely on [Falkor/vagrant-vms](https://github.com/Falkor/vagrant-vms)
-     - use it at your own risks
-	 - based on [packer](http://www.packer.io/) and [veewee](https://github.com/jedi4ever/veewee)
-
-~~~bash
-$> git clone https://github.com/Falkor/vagrant-vms.git
-$> cd vagrant-vms
-$> gem install bundler && bundle install
-$> rake setup
+~~~ruby
+config.vm.provision "shell", inline: <<-SHELL
+  sudo apt-get update --fix-missing
+  sudo apt-get upgrade
+  sudo apt-get --yes --quiet install make latex-beamer biber \
+       texlive-latex-extra texlive-fonts-recommended texlive-science \
+       latex-make pandoc
+SHELL
 ~~~
 
-\pause
+. . .
 
-~~~bash
-# initiate a template for a given Operating System:
-$> rake packer:{Debian,CentOS,openSUSE,scientificlinux,ubuntu}:init
-# Build a Vagrant box
-$> rake packer:{Debian,CentOS,openSUSE,scientificlinux,ubuntu}:build
-# If things goes fine:
-$> vagrant box add packer/<os>-<version>-<arch>/<os>-<version>-<arch>.box
-~~~
+\command{vagrant provision \hfill\textit{\# test your provisioning config}}
+
+
+### Back to Hands-on 1
+
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+
+* **\alert{Steps 5}**:
+
+    - Relative paths, such as above, are expanded relative to the location of the root Vagrantfile for your project.
+
+to cover the following elements:
+    - _Basic Usage of Vagrant_
+    - _Build these Slides_
+           * find the prerequisite software environment \hfill{}`apt-get`
+           * [un]common mix here: `make`, `latex-beamer`, `biber`, `pandoc`...
+
+\wend
+
+
 
 ### Vagrant Box Customization
 
+     - Shell/Python/Ruby script that list the bootstrapping commands
 * _Obj_: customize / specialize the configuration of a _running_ box
 * This can be done in two ways:
      1. use **provisionning** within the `Vagrantfile` (using puppet etc.)
@@ -240,3 +254,28 @@ $> vagrant package \
 * Upon successful upload:  **release** the uploaded box
     - by default it is unreleased
     - Now people using the `<user>/<name>` box will be notified of a pending update
+
+
+### Vagrant Box Generation
+
+* You might rely on [Falkor/vagrant-vms](https://github.com/Falkor/vagrant-vms)
+     - use it at your own risks
+	 - based on [packer](http://www.packer.io/) and [veewee](https://github.com/jedi4ever/veewee)
+
+~~~bash
+$> git clone https://github.com/Falkor/vagrant-vms.git
+$> cd vagrant-vms
+$> gem install bundler && bundle install
+$> rake setup
+~~~
+
+\pause
+
+~~~bash
+# initiate a template for a given Operating System:
+$> rake packer:{Debian,CentOS,openSUSE,scientificlinux,ubuntu}:init
+# Build a Vagrant box
+$> rake packer:{Debian,CentOS,openSUSE,scientificlinux,ubuntu}:build
+# If things goes fine:
+$> vagrant box add packer/<os>-<version>-<arch>/<os>-<version>-<arch>.box
+~~~
