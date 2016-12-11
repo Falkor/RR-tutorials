@@ -17,6 +17,7 @@ addons:
     - texlive-fonts-recommended
     - texlive-latex-recommended
     - texlive-science
+    - texlive-pictures
     - latex-beamer
     - biblatex
     - pgf
