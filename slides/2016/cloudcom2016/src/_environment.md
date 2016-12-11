@@ -1,4 +1,4 @@
-### Hand-on 1: DIY Approach
+### RR the DIY Way
 
 * Let's see how to reproduce a simple yet practical example!
 
@@ -16,7 +16,7 @@
 . . .
 
 \begin{tcolorbox}\centering\scriptsize
-\url{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}
+\url{http://rr-tutorials.readthedocs.io/en/latest/hands-on/03/}
 \end{tcolorbox}
 
 \scriptsize

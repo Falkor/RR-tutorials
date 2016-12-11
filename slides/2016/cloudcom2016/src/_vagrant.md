@@ -129,7 +129,7 @@ end
 
 ### Back to Hands-on 1
 
-\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on/03/}}
 
 * **\alert{Steps [1-4]}** to cover the following elements:
     - _Basic Usage of Vagrant_
@@ -174,7 +174,7 @@ SHELL
 
 ###  Vagrant Box Inline Provisioning
 
-\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on/03/}}
 
 * **\alert{Steps 5}**:
     - adapt the `Vagrantfile` to embed your commands
@@ -200,7 +200,7 @@ yum     install -y <package>   # CentOS/ Redhat
 config.vm.provision "shell", path: "<script>.{sh|py|rb}"
 ~~~
 
-\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on/03/}}
 
 * **\alert{Steps 6}**: copy and adapt `vagrant/bootstrap.sample.sh`
     - adapt the `Vagrantfile` to provision the VM with your script
@@ -308,7 +308,7 @@ $> vagrant package \
 
 ### Vagrant Box Packaging
 
-\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on/03/}}
 
 * **\alert{Steps 7-8}**: Package your box and diffuse it on [Vagrant Cloud](https://vagrantcloud.com)
     - Make preliminary checks

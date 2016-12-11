@@ -85,7 +85,7 @@ theme: readthedocs
 
 ### Hands-On 1: [Markdown](https://daringfireball.net/projects/markdown/syntax)  \& [MkDocs](http://www.mkdocs.org/)
 
-\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on/01/}}
 
 * **\alert{Easy-to-\{Read | Take | Share\} Docs with MkDocs}**
     - installation of MkDocs \hfill{}\myurl{http://www.mkdocs.org/\#installation}
