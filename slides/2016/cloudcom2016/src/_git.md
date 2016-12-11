@@ -603,8 +603,10 @@ Stage \& commit the changes
     - Don't get out of sync with your collaborators
     - Commit the sources, not the derived files
 
-\wbegin{Not covered here (by lack of time)}
+\vspace*{-1em}
+\wbegin{}
 
-* Branches, tags, remotes,
+* **\alert{Not covered here (by lack of time)}**
+    - Branches, tags, remotes, submodules, subtrees, etc...
 
 \wend
