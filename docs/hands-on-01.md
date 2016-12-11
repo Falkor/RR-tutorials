@@ -137,8 +137,8 @@ Make a first try -- it __should fail__:
 ~~~bash
 $> vagrant up
 $> vagrant ssh
-$> cd /vagrant/slides/2016/cloudcom2016/src
-$> make
+(vagrant)$> cd /vagrant/slides/2016/cloudcom2016/src
+(vagrant)$> make
 ~~~
 
 So you will need to install the prerequisite software environment necessary to build these slides
@@ -190,7 +190,7 @@ Once you have tested your inline provisioning and you consider it complete, test
 $> vagrant destroy
 $> vagrant up
 $> vagrant ssh
-$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+(vagrant)$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
 ~~~
 
 ## Step 6: Simple [Shell] Provisioning
@@ -222,16 +222,94 @@ Once you have tested your provisioning script, test it from scratch on the defau
 $> vagrant destroy
 $> vagrant up
 $> vagrant ssh
-$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+(vagrant)$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
 ~~~
 
 ## Step 7: Package a new box
 
 At some moment, you probably wants to broadcast a custom box (reflecting the **precise** environment used for your project run at the time of writing etc.).
 
-You need to perform some cleanup
+Before actually packaging the VM, you need to perform some cleanup
+
+* List the _biggest_ packages installed and  consider removing the useless ones (for instance all the LaTeX  `*-doc` ones)
 
 ~~~bash
-# List the biggest packages installed -- consider removing the useless *-doc ones
-$> dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+(vagrant)$> dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+(vagrant)$> aptitude purge <package>
 ~~~
+
+* Make you final customization: Update `/etc/motd` to embed your name and adapt the information
+
+~~~bash
+(vagrant)$> vim /etc/motd    # :wq to write and quit... OR use nano
+~~~
+
+* Ensure your environment is still working: try to compile your slides
+
+~~~bash
+(vagrant)$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+~~~
+
+* Check the proposed purge script (`vagrant/purge.sh`) and execute it
+
+~~~bash
+(vagrant)$> cd
+(vagrant)$> cat vagrant/purge.sh
+(vagrant)$> sudo bash  vagrant/purge.sh    # that takes some time
+~~~
+
+* Install the [vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin for vagrant to ensure an **Up-to-date Virtualbox Guest additions**
+
+~~~bash
+$> vagrant plugin install vagrant-vbguest
+$> vagrant vbguest --status
+GuestAdditions versions on your host (5.1.8) and guest (4.3.36) do not match.
+# Upgrade the GuestAdditions
+$> vagrant vbguest --do install --auto-reboot
+~~~
+
+Now you are ready to package your VM!
+
+* Locate the internal name (probably something like `RR-tutorials_default_<id>`) of the running VM :
+
+~~~bash
+$> VBoxManage list runningvms
+"RR-tutorials_default_<id>" {...}
+~~~
+
+* ... and make out a new box!
+
+~~~bash
+$> vagrant package \
+   --base RR-tutorials_default_<id> --output <os>-<version>-<arch>.box
+~~~
+
+## Step 8: Upload your box on [Vagrant Cloud](http://vagrantcloud.com)
+
+
+* Now you can upload the generated box `<os>-<version>-<arch>.box` on [Vagrant Cloud](http://vagrantcloud.com)
+    - login and go on <https://atlas.hashicorp.com/vagrant>
+    - select **'New Box'**
+        * Enter the appropriate name `RR-tutorials`
+        * Fill the description: `Official Ubuntu Server 14.04 LTS for the Reproducible Research Tutorial of IEEE CloudCom 2016`
+    - select **'New version**
+        * Enter the [new] version number: `0.1`
+    - select **'New Box Provider'**
+        * Provider: `Virtualbox`
+        * `Upload` the generated box
+        * Select `Finish`
+     - Upon successful upload:  **release** the uploaded box
+        * by default it is unreleased
+
+Now people can use the `<yourlogin>/RR-tutorial` box to collect **your** box.
+
+Check it in another empty project
+
+~~~bash
+$> mkdir /tmp/myRR-project
+$> cd /tmp/myRR-project
+$> vagrant init <login>/RR-tutorials    # Adapt <login> to your login
+$> vagrant up
+~~~
+
+The good point is that if you release a new version of your environment, your collaborators will be automatically notified (the next time they perform a `vagrant up`) of a pending update

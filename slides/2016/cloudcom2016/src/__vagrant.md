@@ -213,64 +213,81 @@ $> vagrant destroy && vagrant up && vagrant ssh
 $> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
 ~~~
 
-### Vagrant Box Puppet Provisioning
 
-*
+### Vagrant Box Packaging
 
+* At some moment, you probably want to diffuse your custom box!
+     - _Ex_: [`svarrette/RR-tutorials`](https://atlas.hashicorp.com/svarrette/boxes/RR-tutorials) used for this tutorial
+     - use [Vagrant Cloud](https://vagrantcloud.com) as a global storage media
+     - `VBoxManage list runningvms` to get the real box name
 
-### Vagrant Box Customization
+\command{vagrant package ---base <real-box-name> ---output <name>.box}
 
-     - Shell/Python/Ruby script that list the bootstrapping commands
-* _Obj_: customize / specialize the configuration of a _running_ box
-* This can be done in two ways:
-     1. use **provisionning** within the `Vagrantfile` (using puppet etc.)
-	 2. re-package the box via `vagrant package`
+. . .
 
-~~~ruby
-# (1) Vagrantfile with Puppet provisioning
-Vagrant.configure(2) do |config|
-  config.vm.box = 'svarrette/centos-7-puppet'
-  config.vm.provision :puppet  do |puppet|
-    puppet.hiera_config_path = 'hieradata/hiera.yaml'
-    puppet.working_directory = '/vagrant'
-    puppet.manifests_path    = "manifests"
-    puppet.module_path       = "modules"
-    puppet.manifest_file     = "init.pp"
-    puppet.options = [ '-v','--report','--show_diff','--pluginsync' ]
-  end
-end
-~~~
+\wbegin{}
 
-### Box Re-packaging (1/2)
+* __\alert{BEFORE packaging your box}__:
+     - Use official [insecure SSH key](https://github.com/mitchellh/vagrant/tree/master/keys) \hfill{}`config.ssh.insert_key=false`
+     - _Purge_ the VM to reduce its size \hfill{}see [`vagrant/purge.sh`](https://github.com/Falkor/RR-tutorials/blob/master/vagrant/purge.sh)
+          * remove useless [big] packages \hfill{}`aptitude purge [...]`
+          * Empty logs/history etc.
+          * Zero out the free space \hfill{}`dd if=/dev/zero of=/EMPTY bs=1M`
+     -  _Up-to-date_ Virtualbox _Guest additions_ \hfill{}`vagrant vbguest`
 
-* \alert{WARNING}: ensure you **DO NOT** reset the [(insecure) SSH key](https://github.com/mitchellh/vagrant/tree/master/keys)
-     - **before** `vagrant up`, use the following `Vagrantfile` configuration:
+\wend
 
-            config.ssh.insert_key = false
+### Detailed Pre-Packaging Steps (1/2)
 
-* Zero out the free space to save space -- run the following script:
+* Ensure you **DO NOT** reset the default [(insecure) SSH key](https://github.com/mitchellh/vagrant/tree/master/keys)
+      - default _expected_ setting to SSH your box
+      - **before** `vagrant up`, ensure replacement of SSH keys **is not done**
 
-~~~bash
-$> dd if=/dev/zero of=/EMPTY bs=1M
-$> rm -f /EMPTY
-~~~
+        ~~~ruby
+        config.ssh.insert_key = false   # in Vagrantfile
+        ~~~
 
-* Ensure Virtualbox Guest additions match using the [vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin
+* _Purge_ the VM, in particular to _Zero out the free space_
+    - see [`vagrant/purge.sh`](https://github.com/Falkor/RR-tutorials/blob/master/vagrant/purge.sh)
 
 ~~~bash
+# Remove APT cache
+apt-get clean -y   && apt-get autoclean -y && apt-get autoremove -y
+# Remove bash history
+unset HISTFILE
+rm -f /root/.bash_history && rm -f /home/vagrant/.bash_history
+# Zero out free space to aid VM compression
+dd if=/dev/zero of=/EMPTY bs=1M
+rm -f /EMPTY
+~~~
+
+### Detailed Pre-Packaging Steps (2/2)
+
+* Ensure an _Up-to-date Virtualbox Guest additions_
+    - ensure optimized usage of the box
+    - simplified management with the  [vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin
+
+~~~bash
+# Install the 'vbguest' plugin
 $> vagrant plugin install vagrant-vbguest
 $> vagrant vbguest --status
-GuestAdditions versions on your host (5.0.4) & guest (4.3.26) mismatch
+GuestAdditions versions on your host (5.1.8) and guest (4.3.36)
+do not match.
 # Upgrade the GuestAdditions
-$> vagrant vbguest --do install --auto-reboot
+$> vagrant vbguest --do install --auto-reboot [--force]
 ~~~
 
-### Box Re-packaging (2/2)
+* If you want the _manual_ way:
+     - copy \texttt{\tiny/Applications/VirtualBox.app/Contents/MacOS/\alert{\textbf{VBoxGuestAdditions.iso}}}
+     - mount in **within** the VM
+     - execute `VBoxLinuxAdditions.run`
+
+### Vagrant Box Packaging
 
 ~~~bash
 # Locate the internal name of the running VM and repackage it
 $> VBoxManage list runningvms
-"vagrant-vms_default_1431034026308_70455" {...}
+"RR-tutorials_default_1481463725786_57301" {...}
 $> vagrant package \
     --base vagrant-vms_default_1431034026308_70455 \
 	--output <os>-<version>-<arch>.box
@@ -289,6 +306,16 @@ $> vagrant package \
     - by default it is unreleased
     - Now people using the `<user>/<name>` box will be notified of a pending update
 
+### Vagrant Box Packaging
+
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+
+* **\alert{Steps 7-8}**: Package your box and diffuse it on [Vagrant Cloud](https://vagrantcloud.com)
+    - Make preliminary checks
+    - Purge the VM
+    - Package it and Upload to [Vagrant Cloud](https://vagrantcloud.com)
+
+\wend
 
 ### Vagrant Box Generation
 
@@ -312,4 +339,33 @@ $> rake packer:{Debian,CentOS,openSUSE,scientificlinux,ubuntu}:init
 $> rake packer:{Debian,CentOS,openSUSE,scientificlinux,ubuntu}:build
 # If things goes fine:
 $> vagrant box add packer/<os>-<version>-<arch>/<os>-<version>-<arch>.box
+~~~
+
+
+### Advanced Provisioning: Puppet
+
+\begin{textblock}{0.2}(0.78,0.07)
+  \imgw{}{logo_puppet.png}
+\end{textblock}
+
+* Shell provisioning is a reasonable good basis but **not sufficient**
+    - _hard to be cross-platform_ \hfill{}`apt-get` vs. `yum`
+* You need something more _consistent_ for a complete **reproducible** environment
+    - \textit{i.e.} advanced _configuration management tools_
+         * [Puppet](https://puppet.com/)    \hfill\myurl{https://puppet.com/}
+         *  [Salt](https://saltstack.com/)...\hfill\myurl{https://saltstack.com/}
+
+~~~ruby
+# (1) Vagrantfile with Puppet provisioning
+Vagrant.configure(2) do |config|
+  config.vm.box = 'svarrette/centos-7-puppet'
+  config.vm.provision :puppet  do |puppet|
+    puppet.hiera_config_path = 'hieradata/hiera.yaml'
+    puppet.working_directory = '/vagrant'
+    puppet.manifests_path    = "manifests"
+    puppet.module_path       = "modules"
+    puppet.manifest_file     = "init.pp"
+    puppet.options = [ '-v','--report','--show_diff','--pluginsync' ]
+  end
+end
 ~~~
