@@ -54,7 +54,7 @@ $> brew cask install vagrant-manager # cf http://vagrantmanager.com/
      - `vagrant up`
 * Keep the number of VMs under control
      - All configuration in `VagrantFile`
-* _Reproducability_
+* _Reproducibility_
      - Identical environment in development and production
 * _Portability_
      - _avoid_ sharing 4 GB VM disks images

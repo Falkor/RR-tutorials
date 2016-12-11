@@ -10,7 +10,7 @@
 * _2003 -- 2007_: PhD between INP Grenoble \& UL
      - \textit{Security in Large Scale Distributed Systems: \newline Authentication and Result Checking}
 * _2007 -- now_: \textit{Research Associate} at [UL](http://www.uni.lu)
-    - Part of the [PCOG Team](http://pcog.uni.lu) lead by Prof. P. Bouvry
+    - Part of the [PCOG Team](http://pcog.uni.lu) led by Prof. P. Bouvry
     - Manager of the [UL High Performance Computing Facility](http://hpc.uni.lu)
          * $\simeq$ 197 **T**Flops (2017), 5.844 **P**B, 4 sysadmins
 
