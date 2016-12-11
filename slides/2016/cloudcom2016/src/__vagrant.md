@@ -350,22 +350,58 @@ $> vagrant box add packer/<os>-<version>-<arch>/<os>-<version>-<arch>.box
 
 * Shell provisioning is a reasonable good basis but **not sufficient**
     - _hard to be cross-platform_ \hfill{}`apt-get` vs. `yum`
-* You need something more _consistent_ for a complete **reproducible** environment
-    - \textit{i.e.} advanced _configuration management tools_
-         * [Puppet](https://puppet.com/)    \hfill\myurl{https://puppet.com/}
-         *  [Salt](https://saltstack.com/)...\hfill\myurl{https://saltstack.com/}
+* You quickly something more _consistent_
+    - [Puppet](https://puppet.com/)    \hfill\myurl{https://puppet.com/}
+    - [Salt](https://saltstack.com/)...\hfill\myurl{https://saltstack.com/}
+
+. . .
+
+\vspace*{-1em}
+\bbegin{Puppet: Reproducible/Cross-Platform IT Environment}
+
+* Advanced configuration management and _IT Automation_
+    - cross-platform w. Puppet's Resource Abstraction Layer ([RAL](https://docs.puppetlabs.com/puppet/latest/reference/lang_summary.html))
+    - Git-based workflow
+* Embed environment management in **manifests** and **modules**
+    - _nodes manifests_: nodes definitions
+    - _modules_: (reusable) set of recipe to configure a given service
+         * Large Community Recipes / Modules \hfill{}\myurl{https://forge.puppet.com/}
+
+\bend
+
+### Puppet Operational modes
+
+* _Masterless_ - apply Puppet manifests directly on the target system.
+    - No need of a complete client-server infrastructure.
+    - Have to distribute manifests and modules to the managed nodes.
+
+\command{puppet apply ---modulepath /modules/ /manifests/file.pp}
+
+. . .
+
+* _Master / Client_ Setup
+    - server (running as `puppet`) listening on 8140 on the Puppet Master
+    - client (running as `root`) on each managed node.
+        * Run as a service (default), via cron (with random delays), manually or via MCollective
+    - Client and Server have to share SSL certificates
+        *  certificates must be signed by the Master CA
+
+\command{puppet agent ---test [---noop] [---environment <environment>]}
+
+
+### Vagrant Puppet Provisionning
+
+* Operate in _masterless_ mode
+* Embed your manifests and modules in your repository
+      - grab community modules with [`librarian-puppet`](http://librarian-puppet.com/), [`r10K`](https://github.com/puppetlabs/r10k)
 
 ~~~ruby
-# (1) Vagrantfile with Puppet provisioning
-Vagrant.configure(2) do |config|
-  config.vm.box = 'svarrette/centos-7-puppet'
-  config.vm.provision :puppet  do |puppet|
+config.vm.provision :puppet  do |puppet|
     puppet.hiera_config_path = 'hieradata/hiera.yaml'
     puppet.working_directory = '/vagrant'
     puppet.manifests_path    = "manifests"
     puppet.module_path       = "modules"
     puppet.manifest_file     = "init.pp"
     puppet.options = [ '-v','--report','--show_diff','--pluginsync' ]
-  end
 end
 ~~~
