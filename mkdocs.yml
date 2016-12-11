@@ -10,4 +10,5 @@ pages:
   - 'Directory Layout': 'contributing/layout.md'
   - 'Repository Setup and Developments': 'contributing/setup.md'
   - 'Semantic Versioning': 'contributing/versioning.md'
+- List of Hands-on: 'hands-on/index.md'
 theme: readthedocs

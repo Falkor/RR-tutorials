@@ -16,11 +16,11 @@
 . . .
 
 \begin{tcolorbox}\centering\scriptsize
-\url{http://rr-tutorials.readthedocs.io/en/latest/hands-on/03/}
+\url{http://rr-tutorials.readthedocs.io/en/latest/hands-on/vagrant/}
 \end{tcolorbox}
 
 \scriptsize
-\hfill{}**\alert{IF NOT YET DONE:}** \myurl{http://rr-tutorials.readthedocs.io/en/latest/setup/   }
+\hfill{}**\alert{IF NOT YET DONE:}** \myurl{http://rr-tutorials.readthedocs.io/en/latest/setup/}
 
 ### Grab the [Code/Data] Source
 
