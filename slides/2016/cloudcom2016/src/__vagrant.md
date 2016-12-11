@@ -88,8 +88,9 @@ end
 | Box name                  | Description               |
 |---------------------------|---------------------------|
 | `ubuntu/trusty64`         | Ubuntu Server 14.04 LTS   |
-| `centos/7`                | CentOS Linux 7 x86_64     |
 | `debian/contrib-jessie64` | Vanilla Debian 8 "Jessie" |
+| `centos/7`                | CentOS Linux 7 x86_64     |
+| `svarrette/RR-tutorials`  | IEEE CloudCom 2016 Tuto   |
 
 \cend
 
@@ -212,6 +213,9 @@ $> vagrant destroy && vagrant up && vagrant ssh
 $> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
 ~~~
 
+### Vagrant Box Puppet Provisioning
+
+*
 
 
 ### Vagrant Box Customization

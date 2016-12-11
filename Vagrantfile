@@ -1,7 +1,8 @@
 VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box      = 'ubuntu/trusty64'
+  #config.vm.box      = 'ubuntu/trusty64'
+  config.vm.box      = 'svarrette/RR-tutorials'
   config.vm.hostname = 'vagrant.RR-tutorial'
   config.vm.post_up_message = "Thanks for following the Reproducible Research Tutorial!\nMore instructions: http://rr-tutorials.rtfd.io/"
   config.ssh.insert_key = false

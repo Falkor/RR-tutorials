@@ -167,7 +167,7 @@ At the root of the `RR-tutorials/` directory, you should have a `Vagrantfile`.
 $> ls
 LICENSE     Makefile    README.md   VERSION     Vagrantfile docs        mkdocs.yml  slides
 $> vagrant --version
-Vagrant 1.8.7
+Vagrant 1.9.1
 ~~~
 
 * let it download the vagrant boxes used for this tutorial in the background while you listen to the keynote ;)
@@ -175,6 +175,16 @@ Vagrant 1.8.7
 ~~~bash
 $> vagrant up      # From the [freshly cloned] root directory of the RR-tutorials repository
 ~~~
+
+`/!\ IMPORTANT`: downloading the configured images (~500MB) takes some time (~10 min). Depending on the number of participants of this tutorial, it may be necessary (and faster) to upload the box directly from a USB stick the technical support team will have prepared.
+
+~~~bash
+$> vagrant box add RR-tutorials /path/to/usb/ubuntu-trusty64-RR.box    # define local box 'RR-tutorials'
+$> sed -i "s/svarrette\///" Vagrantfile      # Remove 'svarrette/' prefix in Vagrantfile
+~~~
+
+As there may be connection
+
 
 __Docker__
 
