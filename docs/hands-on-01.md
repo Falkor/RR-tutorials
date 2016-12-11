@@ -153,10 +153,85 @@ It's time to face the reality of reproducibility: install the **missing packages
 
 * __Hint 2__: find a `README.md` with some info
 
-If you miss a file or configuration file, check the missing one on <http://packages.ubuntu.com/> (in `Search the contents of packages` for Distribution 'Trusty')
+If you miss a file or configuration file (for instance a LaTeX style `*.sty`), check the missing ones on <http://packages.ubuntu.com/> (in `Search the contents of packages` for Distribution 'Trusty')
 
-## Step 5: Simple Provisioning
+## Step 5: Simple [Inline] Provisioning
 
 Now you have a working  _procedure_ to setup an **environment able to build the slides**, it's time to _bundle it_ for provisioning the box upon boot.
 
-* Prepare a script to install the missing
+We will start with the default **inline** shell provisioning where you just list the commands to run.
+
+Adapt the `Vagrantfile` and the below configuration to test your procedure:
+
+~~~ruby
+VAGRANTFILE_API_VERSION = '2'
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # [...]
+  # TODO: Complete the below list ;)
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get update --fix-missing
+    sudo apt-get upgrade
+    sudo apt-get -yq --no-install-suggests --no-install-recommends --force-yes install \
+         git make latex-beamer biber lmodern latex-make [...]
+  SHELL
+end
+~~~
+
+Test _in live_ your provisioning configuration by running:
+
+~~~bash
+$> vagrant provision
+~~~
+
+Once you have tested your inline provisioning and you consider it complete, test it from scratch on the default (untouched) VM to ensure a **reproducible** execution for your colleagues:
+
+~~~bash
+$> vagrant destroy
+$> vagrant up
+$> vagrant ssh
+$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+~~~
+
+## Step 6: Simple [Shell] Provisioning
+
+While an **inline** provisioning is fine for the most simple cases, you might want to perform some advanced bootstrapping procedure by embedding your command in a dedicated script using your favorite scripting language (`bash`, `python`, `ruby`, `perl`...)
+
+Prepare a script to install the missing packages (_i.e._ the instructions you previously placed in the **inline** form) in a separate script `vagrant/bootstrap.sh`. A sample one is proposed in `vagrant/bootstrap.sample.sh`
+
+~~~bash
+$> cp vagrant/bootstrap.sample.sh vagrant/bootstrap.sh
+~~~
+
+Adapt the `Vagrantfile` and the below configuration to test your bootstrapping script:
+
+~~~ruby
+VAGRANTFILE_API_VERSION = '2'
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # [...]
+  config.vm.provision "shell", path: "vagrant/bootstrap.sh"
+end
+~~~
+
+Test _in live_ your provisioning configuration by running `vagrant provision`
+
+Once you have tested your provisioning script, test it from scratch on the default (untouched) VM to ensure a **reproducible** execution for your colleagues.
+
+~~~bash
+$> vagrant destroy
+$> vagrant up
+$> vagrant ssh
+$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+~~~
+
+## Step 7: Package a new box
+
+At some moment, you probably wants to broadcast a custom box (reflecting the **precise** environment used for your project run at the time of writing etc.).
+
+You need to perform some cleanup
+
+~~~bash
+# List the biggest packages installed -- consider removing the useless *-doc ones
+$> dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+~~~

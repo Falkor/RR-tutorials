@@ -74,16 +74,16 @@ $> brew cask install vagrant-manager # cf http://vagrantmanager.com/
      - You can have multiple (named) box within the **same** `Vagrantfile`
            * See [`ULHPC/puppet-sysadmins/Vagrantfile`](https://github.com/ULHPC/puppet-sysadmins/blob/devel/Vagrantfile)
 
-\cbegin{0.57\textwidth}
+\cbegin{0.52\textwidth}
 
 ~~~ruby
 Vagrant.configure(2) do |config|
-   config.vm.box = 'ubuntu/trusty64'
+   config.vm.box = '<user>/<name>'
    config.ssh.insert_key = false
 end
 ~~~
 
-\column{0.4\textwidth}\tiny
+\column{0.48\textwidth}\tiny
 
 | Box name                  | Description               |
 |---------------------------|---------------------------|
@@ -138,6 +138,11 @@ end
 
 \wend
 
+* _Hints_:
+     - if a package is missing, find the appropriate one `apt-cache search`
+     - [Ubuntu Package Search](http://packages.ubuntu.com/) for a missing `*.sty` \hfill{}\myurl{http://packages.ubuntu.com/}
+          * `Search the contents of packages` for Distribution `Trusty`
+
 <!-- - design a provisioning script -->
 <!-- - commit / package the updated box (for incremental share) -->
 
@@ -155,9 +160,9 @@ end
 config.vm.provision "shell", inline: <<-SHELL
   sudo apt-get update --fix-missing
   sudo apt-get upgrade
-  sudo apt-get --yes --quiet install make latex-beamer biber \
-       texlive-latex-extra texlive-fonts-recommended texlive-science \
-       latex-make pandoc
+  # Complete the below list of missing packages
+  apt-get -yq --no-install-suggests --no-install-recommends install \
+        git make latex-beamer biber latex-make [...]
 SHELL
 ~~~
 
@@ -166,21 +171,46 @@ SHELL
 \command{vagrant provision \hfill\textit{\# test your provisioning config}}
 
 
-### Back to Hands-on 1
+###  Vagrant Box Inline Provisioning
 
 \wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
 
 * **\alert{Steps 5}**:
-
-    - Relative paths, such as above, are expanded relative to the location of the root Vagrantfile for your project.
-
-to cover the following elements:
-    - _Basic Usage of Vagrant_
-    - _Build these Slides_
-           * find the prerequisite software environment \hfill{}`apt-get`
-           * [un]common mix here: `make`, `latex-beamer`, `biber`, `pandoc`...
+    - adapt the `Vagrantfile` to embed your commands
+    - recall that relative paths are expanded relative to the location of the root `Vagrantfile`
+    - inline command are run as the `vagrant` user, **not** `root`
 
 \wend
+
+* __\alert{IMPORTANT}__:
+     - all your commands should run **in a non-interactive** way
+
+~~~bash
+apt-get install -y <package>   # Debian / Ubuntu
+yum     install -y <package>   # CentOS/ Redhat
+~~~
+
+### Vagrant Box Shell Provisioning
+
+* Embed your inline commands in a _Shell/Python/Ruby_ script
+     - see sample script `vagrant/bootstrap.sample.sh`
+
+~~~ruby
+config.vm.provision "shell", path: "<script>.{sh|py|rb}"
+~~~
+
+\wbegin{Your Turn! \hfill\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on-01/}}
+
+* **\alert{Steps 6}**: copy and adapt `vagrant/bootstrap.sample.sh`
+    - adapt the `Vagrantfile` to provision the VM with your script
+    - test a reproducible provisioning from scratch
+
+\wend
+
+~~~bash
+$> vagrant destroy && vagrant up && vagrant ssh
+$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+~~~
 
 
 
