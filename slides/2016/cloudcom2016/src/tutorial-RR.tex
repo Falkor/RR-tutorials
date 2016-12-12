@@ -1,7 +1,7 @@
 % =============================================================================
 % File:  tutorial-RR.tex --
 % Author(s): Sebastien Varrette (Sebastien.Varrette@uni.lu)
-% Time-stamp: <Mon 2016-12-12 00:58 svarrette>
+% Time-stamp: <Mon 2016-12-12 08:51 svarrette>
 %
 % Copyright (c) 2016 Sebastien Varrette<Sebastien.Varrette@uni.lu>
 %
@@ -87,56 +87,46 @@
   \titlepage
 \end{frame}
 
-% % ......
-% \frame{
-%   \frametitle{Summary}
-%   {\scriptsize
-%     \tableofcontents
-%   }
-% }
+% ......
+\frame{
+  \frametitle{Summary}
+  {\scriptsize
+    \tableofcontents
+  }
+}
 
-% % ___________________
-% \input{_me.md}
-% \input{_preamble.md}
-% \input{_pre-install.md}
+% ___________________
+\input{_me.md}
+\input{_preamble.md}
+\input{_pre-install.md}
 
 
-% % ____________________________________________________________
-% \section{Introduction and Motivating Examples}
-% \input{_intro.md}
+% ____________________________________________________________
+\section{Introduction and Motivating Examples}
+\input{_intro.md}
 
 %____________________________________________________________
 \section{Reproducible Research}
-% \input{_reproducible_research.md}
+\input{_reproducible_research.md}
 
-% %...................................................
-% \subsection{Easy-to \{read|take|share\} Docs}
-% \input{_docs.md}
+%...................................................
+\subsection{Easy-to \{read|take|share\} Docs}
+\input{_docs.md}
 
-% %...................................................
-% \subsection{Sharing Code and Data}
-% \input{_sharing.md}
-% \input{_git.md}
+%...................................................
+\subsection{Sharing Code and Data}
+\input{_sharing.md}
+\input{_git.md}
 
-% %...................................................
-% \subsection{Mastering your [reproducible] environment}
-% \input{_environment.md}
-% \input{_vagrant.md}
+%...................................................
+\subsection{Mastering your [reproducible] environment}
+\input{_environment.md}
+\input{_vagrant.md}
+\input{_software.md}
 \input{_docker.md}
 
 
-% % ____________________________________________________________
-% \section{Hands-on 2: Docker}
-% \input{_docker.md}
-
-% % ______________________________________________________________________________________________
-% \section{Hands-on 3: Reproducible Software Environment with EasyBuild}
-
-% % ______________________________________________________________________________________________
-% \section{Best Practices and Review of some Reproducibility Tools}
-% % \input{__ruby.md}
-% % \input{__python.md}
-% %
+% % % %
 % % Dissemination Platforms
 % %
 % % Workflow Tracking and Research Environments:
@@ -164,41 +154,42 @@
 % % Automatic testing
 % % - Bats, Travis, gitlab-CI, codeclimate....
 
-% ____________________________________________________________
-% \section{Conclusion}
-%\input{_conclusion/md}
-% % Open Challenges
-% \input{_challenges.md}
+%____________________________________________________________
+\section{Conclusion}
+\input{_conclusion.md}
+%\input{_not_cover}
+% Open Challenges
+\input{_challenges.md}
 
 
-% % ======================== END =========================
-% \section*{Thank you for your attention...}
-% \frame{
-% \frametitle{Questions?}
-%   % ~~~~~~~~~~~~~~
-% \begin{columns}
-%   \column{0.5\textwidth}
-%     %   \emph{Contact}\\
-%   {\tiny
-%   \emph{Sebastien Varrette}\\
-%   ~~~~ \textit{mail:} \href{mailto:Sebastien.Varrette@uni.lu}{Sebastien.Varrette@uni.lu}\\
-%   ~~~~ Office E-007\\
-%   ~~~~ Campus Kirchberg\\
-%   ~~~~ 6, rue Coudenhove-Kalergi\\
-%   ~~~~ L-1359 Luxembourg
+% ======================== END =========================
+\section*{Thank you for your attention...}
+\frame{
+\frametitle{Questions?}
+  % ~~~~~~~~~~~~~~
+\begin{columns}
+  \column{0.5\textwidth}
+    %   \emph{Contact}\\
+  {\tiny
+  \emph{Sebastien Varrette}\\
+  ~~~~ \textit{mail:} \href{mailto:Sebastien.Varrette@uni.lu}{Sebastien.Varrette@uni.lu}\\
+  ~~~~ Office E-007\\
+  ~~~~ Campus Kirchberg\\
+  ~~~~ 6, rue Coudenhove-Kalergi\\
+  ~~~~ L-1359 Luxembourg
 
-% }
-%   \column{0.5\textwidth}
-%     %   \scalebox{8}{\emph{?}}
-%   \includegraphics[width=1.5in]{question.jpg}
-% \end{columns}
-%   % Below is the table of content over 2 columns
-% \vfill
-% \begin{multicols}{2}
-%   {\tiny \tableofcontents}
-% \end{multicols}
+}
+  \column{0.5\textwidth}
+    %   \scalebox{8}{\emph{?}}
+  \includegraphics[width=1.5in]{question.jpg}
+\end{columns}
+  % Below is the table of content over 2 columns
+\vfill
+\begin{multicols}{2}
+  {\tiny \tableofcontents}
+\end{multicols}
 
-% }
+}
 
 \newcounter{finalframe}
 \setcounter{finalframe}{\value{framenumber}}

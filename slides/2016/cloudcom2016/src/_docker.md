@@ -53,3 +53,11 @@
 . . .
 
 \command{docker commit <ID> <name>}
+
+. . .
+
+\wbegin{Your Turn!}\centering
+
+\myurl{http://rr-tutorials.readthedocs.io/en/latest/hands-on/docker/}
+
+\wend
