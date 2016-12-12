@@ -130,9 +130,3 @@ $> make setup  # OR git submodule init && git submodule update
     - [Vagrant](https://www.vagrantup.com) configuration for **this** project\hfill{}`Vagrantfile`
     - [Bats](https://github.com/sstephenson/bats) unit tests \hfill{}`tests/`
     - Continuous Integration settings through [Travis-CI](https://travis-ci.org/Falkor/RR-tutorials)\hfill{}`.travis.yml`
-
-### Use a Constrained Environment
-
-\hfill\myurl{http://vagrantup.com/}
-
-\imgw{}{screenshot_vagrant}

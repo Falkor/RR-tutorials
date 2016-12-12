@@ -1,7 +1,7 @@
 % =============================================================================
 % File:  tutorial-RR.tex --
 % Author(s): Sebastien Varrette (Sebastien.Varrette@uni.lu)
-% Time-stamp: <Sun 2016-12-11 23:18 svarrette>
+% Time-stamp: <Mon 2016-12-12 00:58 svarrette>
 %
 % Copyright (c) 2016 Sebastien Varrette<Sebastien.Varrette@uni.lu>
 %
@@ -40,6 +40,15 @@
   \frame{
     \frametitle{Summary}
     {\scriptsize\tableofcontents[currentsection]}
+  }
+}
+\AtBeginSubsection[]
+{
+  \frame{
+    \frametitle{Summary}
+    %\begin{multicols}{2}
+      {\scriptsize\tableofcontents[currentsection,currentsubsection]}
+    %\end{multicols}
   }
 }
 
@@ -96,8 +105,8 @@
 % \section{Introduction and Motivating Examples}
 % \input{_intro.md}
 
-% %____________________________________________________________
-% \section{Reproducible Research}
+%____________________________________________________________
+\section{Reproducible Research}
 % \input{_reproducible_research.md}
 
 % %...................................................
@@ -111,9 +120,9 @@
 
 % %...................................................
 % \subsection{Mastering your [reproducible] environment}
-\input{_environment.md}
-\input{_vagrant.md}
-
+% \input{_environment.md}
+% \input{_vagrant.md}
+\input{_docker.md}
 
 
 % % ____________________________________________________________
@@ -156,10 +165,10 @@
 % % - Bats, Travis, gitlab-CI, codeclimate....
 
 % ____________________________________________________________
-\section{Conclusion}
+% \section{Conclusion}
 %\input{_conclusion/md}
 % % Open Challenges
-\input{_challenges.md}
+% \input{_challenges.md}
 
 
 % % ======================== END =========================

@@ -1,3 +1,8 @@
+### Use a Constrained Environment
+
+\hfill\myurl{http://vagrantup.com/}
+
+\imgw{}{screenshot_vagrant}
 
 ### What is [Vagrant](http://vagrantup.com/) ?
 
