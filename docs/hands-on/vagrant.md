@@ -190,7 +190,7 @@ Once you have tested your inline provisioning and you consider it complete, test
 $> vagrant destroy
 $> vagrant up
 $> vagrant ssh
-(vagrant)$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+(vagrant)$> make -C /vagrant/slides/2016/cloudcom2016/src/
 ~~~
 
 ## Step 6: Simple [Shell] Provisioning
@@ -222,7 +222,7 @@ Once you have tested your provisioning script, test it from scratch on the defau
 $> vagrant destroy
 $> vagrant up
 $> vagrant ssh
-(vagrant)$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+(vagrant)$> make -C /vagrant/slides/2016/cloudcom2016/src/
 ~~~
 
 ## Step 7: Package a new box
@@ -247,7 +247,7 @@ Before actually packaging the VM, you need to perform some cleanup
 * Ensure your environment is still working: try to compile your slides
 
 ~~~bash
-(vagrant)$> make -C make -C /vagrant/slides/2016/cloudcom2016/src/
+(vagrant)$> make -C /vagrant/slides/2016/cloudcom2016/src/
 ~~~
 
 * Check the proposed purge script (`vagrant/purge.sh`) and execute it
