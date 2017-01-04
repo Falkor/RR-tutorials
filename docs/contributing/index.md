@@ -22,4 +22,4 @@ This project is released under the terms of the [GPL-3.0 Licence](LICENSE). So y
 
 This assumes that you have understood the [directory tree structure](layout.md) of this repository.
 
-Finally, you shall be aware of the way the [semantic versioning](versioning.md) procedure of this Puppet module are handled.
+Finally, you shall be aware of the way the [semantic versioning](versioning.md) procedure of this repository is handled.
