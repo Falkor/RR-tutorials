@@ -28,6 +28,7 @@
 
 \wend
 
+\courtesy{L. Nussbaum}
 
 ### (Poor) State of Experimentation in CS
 
@@ -189,6 +190,7 @@
 * There is no label/legend/... What is the _meaning of this graph_?
      - If only I could access the generation script
 
+\courtesy{A. Legrand}
 
 ### What About You (as Author) ?
 
@@ -217,6 +219,7 @@
 
 \exend
 
+\courtesy{A. Legrand}
 
 ### Why is it Hard to Reproduce? \hfill{\tiny (any Scientific Work)}
 
@@ -242,3 +245,5 @@
     - ~~Lack of easy-to-use tools~~
 
 \wend
+
+\courtesy{A. Legrand}
