@@ -6,6 +6,9 @@
 
 This website hosts documents, material and information related to the tutorial "__Reproducible Research at the Cloud Era__" given during the [IEEE CloudCom 2016](http://2016.cloudcom.org/) conference.
 
+[![](https://github.com/Falkor/RR-tutorials/raw/master/slides/2016/cloudcom2016/cover_slides.png)](https://github.com/Falkor/RR-tutorials/raw/master/slides/2016/cloudcom2016/tutorial-RR.pdf)
+
+
 The **objective** of this tutorial is to offer a set of **practical sessions** around selected tools we consider relevant for the many challenges opened by _Reproducible Research_:
 
 * Accurate, organized and _easy-to\{read|take|share\} Docs_
@@ -20,6 +23,8 @@ The **objective** of this tutorial is to offer a set of **practical sessions** a
     - Automatically test your recipes for Environment configuration
 
 The hands-on are listed on [this page](hands-on/).
+
+
 
 
 _Note:_ This documentation is built using [mkdocs.org](http://mkdocs.org).

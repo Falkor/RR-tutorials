@@ -18,6 +18,8 @@
 
 This repository hosts documents, material and information related to the tutorial "Reproducible Research at the Cloud Era" given during the [IEEE CloudCom 2016](http://2016.cloudcom.org/) conference.
 
+[![](https://github.com/Falkor/RR-tutorials/raw/master/slides/2016/cloudcom2016/cover_slides.png)](https://github.com/Falkor/RR-tutorials/raw/master/slides/2016/cloudcom2016/tutorial-RR.pdf)
+
 ## Installation / Repository Setup
 
 This repository is hosted on [Github](https://github.com/Falkor/rr-tutorials).
