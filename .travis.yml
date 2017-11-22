@@ -39,8 +39,10 @@ before_script:
 - wget -q http://mirrors.ctan.org/macros/latex/contrib/floatflt.zip
 - wget -q http://mirrors.ctan.org/support/latex-make.zip
 - wget -q http://mirrors.ctan.org/graphics/pgf/contrib/smartdiagram.zip
+- wget -q http://mirrors.ctan.org/macros/latex/contrib/ulem.zip
 - unzip -qq tcolorbox.zip    -d $TEXMFLOCAL
 - unzip -qq smartdiagram.zip -d $TEXMFLOCAL
+- unzip -qq ulem.zip         -d $TEXMFLOCAL
 - unzip -qq floatflt.zip
 - cd ./floatflt/ && latex floatflt.ins && cd -
 - cp ./floatflt/floatflt.sty $TEXMFLOCAL/tex/latex/
