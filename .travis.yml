@@ -49,6 +49,7 @@ before_script:
 - unzip -qq latex-make.zip
 - cd ./latex-make && latex latex-make.ins && cd -
 - cp ./latex-make/figlatex.sty $TEXMFLOCAL/tex/latex/
+- cp ./ulem/ulem.sty           $TEXMFLOCAL/tex/latex/
 - texhash
 script:
 - bats tests
