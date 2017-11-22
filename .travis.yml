@@ -19,7 +19,7 @@ addons:
     - texlive-science
     - texlive-pictures
     - latex-beamer
-    - biblatex
+    - biber
     - pgf
     - pandoc
     - unzip
