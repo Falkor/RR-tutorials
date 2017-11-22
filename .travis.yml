@@ -35,10 +35,12 @@ before_script:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update      ; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install bats; fi
 - mkdir -p $TEXMFLOCAL/tex/latex/
-- wget -q http://mirrors.ctan.org/install/macros/latex/contrib/tcolorbox.tds.zip
+- wget -q http://mirrors.ctan.org/macros/latex/contrib/tcolorbox.zip
 - wget -q http://mirrors.ctan.org/macros/latex/contrib/floatflt.zip
 - wget -q http://mirrors.ctan.org/support/latex-make.zip
-- unzip -qq tcolorbox.tds.zip -d $TEXMFLOCAL
+- wget -q http://mirrors.ctan.org/graphics/pgf/contrib/smartdiagram.zip
+- unzip -qq tcolorbox.zip    -d $TEXMFLOCAL
+- unzip -qq smartdiagram.zip -d $TEXMFLOCAL
 - unzip -qq floatflt.zip
 - cd ./floatflt/ && latex floatflt.ins && cd -
 - cp ./floatflt/floatflt.sty $TEXMFLOCAL/tex/latex/
