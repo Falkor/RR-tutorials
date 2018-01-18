@@ -87,21 +87,27 @@ Check that you can run `virtualbox` now.
 * For [Docker](https://docker.com/), choose your distribution from https://docs.docker.com/engine/installation/linux/
 and follow the instructions.
 You need a reasonably new kernel version (3.10 or higher).
+Here are detailed instuctions per OS:
+
+* [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
+* [Debian](https://docs.docker.com/engine/installation/linux/docker-ce/debian/)
+* [CentOS](https://docs.docker.com/engine/installation/linux/docker-ce/centos/)
+
 
 ## Windows
 
 On Windows (10, 7/8 should also be OK) you should download and install the following tools:
 
-* [VirtualBox](https://www.virtualbox.org/wiki/Downloads), download the latest [VirtualBox installer](http://download.virtualbox.org/virtualbox/5.1.10/VirtualBox-5.1.10-112026-Win.exe) and [Extension pack](http://download.virtualbox.org/virtualbox/5.1.10/Oracle_VM_VirtualBox_Extension_Pack-5.1.10-112026.vbox-extpack)
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads), download the latest [VirtualBox installer](https://download.virtualbox.org/virtualbox/5.2.6/VirtualBox-5.2.6-120293-Win.exe) and [Extension pack](https://download.virtualbox.org/virtualbox/5.2.6/Oracle_VM_VirtualBox_Extension_Pack-5.2.6-120293.vbox-extpack).
 
 First, install VirtualBox with the default settings. Note that a warning will be issued that your network connections will be temporarily impacted, you should continue.
 Then, run the downloaded extension pack (.vbox-extpack file), it will open within the VirtualBox Manager and you should let it install normally.
 
-* [Vagrant](https://www.vagrantup.com/downloads.html), download the latest [Vagrant installer](https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1.msi)
+* [Vagrant](https://www.vagrantup.com/downloads.html), download the latest [Vagrant installer](https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.msi)
 
 Proceed with the installation, no changes are required to the default setup.
 
-* [Git](https://git-scm.com/downloads), download the latest [Git installer](https://github.com/git-for-windows/git/releases/download/v2.11.0.windows.1/Git-2.11.0-64-bit.exe)
+* [Git](https://git-scm.com/downloads), download the latest [Git installer](https://git-scm.com/download/win)
 
 The Git installation requires a few changes to the defaults, make sure the following are selected in the installer:
 
